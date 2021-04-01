@@ -4197,7 +4197,7 @@ MonoBehaviour:
     count: 5
     rate: 1
   - name: Circle 1
-    enemyPrefab: {fileID: 5866584541829830389, guid: 6316e955935813849b1ec709ecb1ee65, type: 3}
+    enemyPrefab: {fileID: 2520368175424055990, guid: 6a5f81f2b81910544bddc1d8cdc478a9, type: 3}
     count: 3
     rate: 2
   - name: Circle 1
@@ -4205,8 +4205,8 @@ MonoBehaviour:
     count: 10
     rate: 5
   spawnPoint: {fileID: 342380588}
-  timeBetweenWaves: 5
-  waveCountdown: 2
+  timeBetweenWaves: 3
+  waveCountdown: 0
   waveCountdownText: {fileID: 1706367997}
 --- !u!4 &509015236
 Transform:

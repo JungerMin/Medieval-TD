@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
-    public float speed = 10f;
+    public float speed;
 
     private Transform target;
     private int waypointIndex = 0;

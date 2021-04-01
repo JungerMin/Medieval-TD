@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Turret : MonoBehaviour
@@ -28,8 +26,8 @@ public class Turret : MonoBehaviour
 
         foreach (GameObject enemy in enemies)
         {
-            EnemyAI enemy1 = enemy.GetComponent<EnemyAI>();
-            float pathEnemy = enemy1.distanceToGoal;
+            EnemyAI enemyAI = enemy.GetComponent<EnemyAI>();
+            float pathEnemy = enemyAI.distanceToGoal;
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
             if (distanceToEnemy <= range && pathEnemy < shortestPath)
             {
