@@ -4197,13 +4197,13 @@ MonoBehaviour:
     count: 5
     rate: 1
     waveCountdown: 2.5
-  - name: Circle 1
+  - name: Square 1
     enemyPrefab: {fileID: 2520368175424055990, guid: 6a5f81f2b81910544bddc1d8cdc478a9, type: 3}
     count: 3
     rate: 2
     waveCountdown: 5.5
-  - name: Circle 1
-    enemyPrefab: {fileID: 5866584541829830389, guid: 6316e955935813849b1ec709ecb1ee65, type: 3}
+  - name: Triangle 1
+    enemyPrefab: {fileID: 8235633497620019800, guid: 43dd4f98254113b4bae18b7794c9fb7a, type: 3}
     count: 10
     rate: 5
     waveCountdown: 7.5
