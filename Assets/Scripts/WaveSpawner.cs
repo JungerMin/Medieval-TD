@@ -13,6 +13,7 @@ public class WaveSpawner : MonoBehaviour
         public Transform enemyPrefab;
         public int count;
         public float rate;
+        public float waveCountdown = 2f;
     }
 
     public Wave[] waves;
@@ -20,14 +21,17 @@ public class WaveSpawner : MonoBehaviour
 
     public Transform spawnPoint;
 
-    public float timeBetweenWaves = 5f;
-    public float waveCountdown = 2f;
+    public float waveCountdown;
     private float searchCountdown = 1f;
 
     public Text waveCountdownText;
 
     private SpawnState state = SpawnState.COUNTING;
 
+    void Start()
+    {
+        waveCountdown = waves[0].waveCountdown;
+    }
 
     void Update()
     {
@@ -43,7 +47,7 @@ public class WaveSpawner : MonoBehaviour
                 /*  WaveCompleted() for don't wait till all enemies dead
                  *  return for wait till all enemies dead
                  */
-                return;
+                WaveCompleted();
             }
         }
 
@@ -52,6 +56,7 @@ public class WaveSpawner : MonoBehaviour
         {
             if (state != SpawnState.SPAWNING)
             {
+                waveCountdownText.text = "GO!";
                 StartCoroutine(SpawnWave(waves[nextWave]));
             }
         }
@@ -67,7 +72,6 @@ public class WaveSpawner : MonoBehaviour
         Debug.Log("Wave Completed!");
 
         state = SpawnState.COUNTING;
-        waveCountdown = timeBetweenWaves;
 
         if(nextWave + 1 > waves.Length - 1)
         {
@@ -78,6 +82,8 @@ public class WaveSpawner : MonoBehaviour
         {
             nextWave++;
         }
+
+        waveCountdown = waves[nextWave].waveCountdown;
     }
 
     bool EnemyIsAlive()
@@ -106,6 +112,8 @@ public class WaveSpawner : MonoBehaviour
         }
 
         state = SpawnState.WAITING;
+
+        Debug.Log("Wave Spawned!");
 
         yield break;
     }

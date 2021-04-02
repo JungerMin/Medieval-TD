@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
-    private Transform target;
+    public GameObject target;
     public float range = 15f;
 
     public string enemyTag = "Enemy";
@@ -20,9 +20,18 @@ public class Turret : MonoBehaviour
     void UpdateTarget()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
-        GameObject targetEnemy = null;
+ 
         float distanceToTarget = Mathf.Infinity;
         float shortestPath = Mathf.Infinity;
+
+        if (target != null)
+        {
+            distanceToTarget = Vector3.Distance(transform.position, target.transform.position);
+            if (distanceToTarget > range)
+            {
+                target = null;
+            }
+        }
 
         foreach (GameObject enemy in enemies)
         {
@@ -33,16 +42,8 @@ public class Turret : MonoBehaviour
             {
                 distanceToTarget = distanceToEnemy;
                 shortestPath = pathEnemy;
-                targetEnemy = enemy;
+                target = enemy;
             }
-        }
-
-        if (targetEnemy != null && distanceToTarget <= range)
-        {
-            target = targetEnemy.transform;
-        } else
-        {
-            target = null;
         }
     }
 
@@ -53,7 +54,7 @@ public class Turret : MonoBehaviour
             return;
 
         // target lookon
-        Vector3 dir = target.position - transform.position; // find Vector from Turret to enemy
+        Vector3 dir = target.transform.position - transform.position; // find Vector from Turret to enemy
         Quaternion lookRotation = Quaternion.LookRotation(dir); // find Rotation needed to allign to dir
         Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * rotationSpeed).eulerAngles; // get eulerAngles
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f); // set rotation of turret

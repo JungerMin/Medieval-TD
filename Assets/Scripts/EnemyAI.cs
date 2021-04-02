@@ -6,6 +6,9 @@ public class EnemyAI : MonoBehaviour
 
     private Transform target;
     private int waypointIndex = 0;
+    private float distanceTravelled;
+    private Vector3 lastPosition;
+
     public float distanceToGoal = 0;
 
     void Start()
@@ -16,6 +19,9 @@ public class EnemyAI : MonoBehaviour
         {
             distanceToGoal += Vector3.Distance(Waypoints.waypoints[i + 1].position, Waypoints.waypoints[i].position);
         }
+
+        distanceTravelled = 0f;
+        lastPosition = transform.position;
     }
 
     void Update()
@@ -27,6 +33,11 @@ public class EnemyAI : MonoBehaviour
         {
             GetNextWayPoint();
         }
+
+        distanceTravelled = Vector3.Distance(transform.position, lastPosition);
+        lastPosition = transform.position;
+
+        distanceToGoal -= distanceTravelled;
     }
 
     void GetNextWayPoint()
@@ -37,7 +48,6 @@ public class EnemyAI : MonoBehaviour
             return;
         }
 
-        distanceToGoal -= Vector3.Distance(Waypoints.waypoints[waypointIndex + 1].position, Waypoints.waypoints[waypointIndex].position);
         waypointIndex++;
         target = Waypoints.waypoints[waypointIndex];
     }
