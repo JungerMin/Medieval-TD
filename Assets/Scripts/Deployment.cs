@@ -1,21 +1,36 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Deployment : MonoBehaviour
 {
+    public TurretBlueprint standardTurret;
+    public TurretBlueprint missileLauncher;
+
+
+    [Header("Turret Cost")]
+    public Text standardTurretCost;
+    public Text missileLauncherCost;
+
     BuildManager buildManager;
 
     private void Start()
     {
         buildManager = BuildManager.instance;
+
+        standardTurretCost.text = standardTurret.cost.ToString();
+        missileLauncherCost.text = missileLauncher.cost.ToString();
+
     }
 
-    public void DeployStandardTurret()
+    public void SelectStandardTurret()
     {
-        buildManager.SetTurretToBuild(buildManager.standardTurretPrefab);
+        buildManager.SelectTurretToBuild(standardTurret);
     }
 
-    public void DeployMissileLauncher()
+    public void SelectMissileLauncher()
     {
-        buildManager.SetTurretToBuild(buildManager.missileLauncherPrefab);
+        buildManager.SelectTurretToBuild(missileLauncher);
     }
+
+
 }

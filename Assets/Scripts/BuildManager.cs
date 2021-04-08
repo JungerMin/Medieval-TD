@@ -6,7 +6,7 @@ public class BuildManager : MonoBehaviour
 
     private void Awake()
     {
-        if(instance != null)
+        if (instance != null)
         {
             Debug.LogError("More than one BuildManager in scene!");
             return;
@@ -14,17 +14,28 @@ public class BuildManager : MonoBehaviour
         instance = this;
     }
 
-    public GameObject standardTurretPrefab;
-    public GameObject missileLauncherPrefab;
+    private TurretBlueprint turretToBuild;
 
-    private GameObject turretToBuild;
+    public bool CanBuild { get { return turretToBuild != null; } }
+    public bool HasMoney { get { return PlayerStats.DeploymentPoints >= turretToBuild.cost; } }
 
-    public GameObject GetTurretToBuild()
+    public void BuildTurretOn (Node node)
     {
-        return turretToBuild;
+        if (PlayerStats.DeploymentPoints < turretToBuild.cost)
+        {
+            Debug.Log("Not enough Deploymentpoints!");
+            return;
+        }
+
+        PlayerStats.DeploymentPoints -= turretToBuild.cost;
+
+        GameObject turret = (GameObject) Instantiate(turretToBuild.turretPrefab, node.GetBuildPosition(), Quaternion.identity);
+        node.turret = turret;
+
+        Debug.Log("Turret build! Deploymentpoints left: " + PlayerStats.DeploymentPoints);
     }
 
-    public void SetTurretToBuild (GameObject turret)
+    public void SelectTurretToBuild (TurretBlueprint turret)
     {
         turretToBuild = turret;
     }

@@ -16,10 +16,16 @@ public class CameraController : MonoBehaviour
     public float minZ = 10f;
     public float maxZ = 80f;
 
-    private void Start()
+    private Vector3 startPosition;
+    private Quaternion startRotation;
+
+    void Start()
     {
         Debug.Log(Screen.height);
         Debug.Log(Screen.width);
+
+        startPosition = new Vector3(35.625f, 77.89f, 15f);
+        startRotation = new Quaternion(0f, 0f, 0f, 0f);
     }
     void Update()
     {
@@ -46,6 +52,11 @@ public class CameraController : MonoBehaviour
         if (Input.GetKey("e"))
         {
             transform.Rotate(0, rotationSpeed * Time.deltaTime, 0, Space.Self);
+        }
+        if (Input.GetKey("r"))
+        {
+            transform.position = startPosition;
+            transform.rotation = startRotation;
         }
 
         float scroll = Input.GetAxis("Mouse ScrollWheel");

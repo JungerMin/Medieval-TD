@@ -56,14 +56,15 @@ public class WaveSpawner : MonoBehaviour
         {
             if (state != SpawnState.SPAWNING)
             {
-                waveCountdownText.text = "GO!";
+                waveCountdownText.text = "Spawning Wave!";
                 StartCoroutine(SpawnWave(waves[nextWave]));
             }
         }
         else
         {
             waveCountdown -= Time.deltaTime;
-            waveCountdownText.text = Mathf.Round(waveCountdown).ToString();
+            waveCountdown = Mathf.Clamp(waveCountdown, 0f, Mathf.Infinity);
+            waveCountdownText.text = string.Format("{0:00.00}", waveCountdown);
         }
     }
 
