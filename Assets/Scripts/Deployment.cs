@@ -13,4 +13,9 @@ public class Deployment : MonoBehaviour
     {
         buildManager.SetTurretToBuild(buildManager.standardTurretPrefab);
     }
+
+    public void DeployMissileLauncher()
+    {
+        buildManager.SetTurretToBuild(buildManager.missileLauncherPrefab);
+    }
 }
