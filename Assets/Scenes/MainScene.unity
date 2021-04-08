@@ -4132,6 +4132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b6cb9bbcd0cada409f8baccf3baa7a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildEffect: {fileID: 44955642382259297, guid: 6a171c6c56a87b84ea563b31653da559, type: 3}
 --- !u!114 &509015238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7498,7 +7499,7 @@ GameObject:
   - component: {fileID: 977596407}
   - component: {fileID: 977596406}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: InWorldUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13803,7 +13804,7 @@ GameObject:
   - component: {fileID: 1851856773}
   - component: {fileID: 1851856772}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

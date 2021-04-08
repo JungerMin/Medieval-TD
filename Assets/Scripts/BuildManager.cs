@@ -3,6 +3,7 @@ using UnityEngine;
 public class BuildManager : MonoBehaviour
 {
     public static BuildManager instance;
+    public GameObject buildEffect;
 
     private void Awake()
     {
@@ -31,6 +32,9 @@ public class BuildManager : MonoBehaviour
 
         GameObject turret = (GameObject) Instantiate(turretToBuild.turretPrefab, node.GetBuildPosition(), Quaternion.identity);
         node.turret = turret;
+
+        GameObject effect = (GameObject)Instantiate(buildEffect, node.GetBuildPosition(), Quaternion.identity);
+        Destroy(effect, 5f);
 
         Debug.Log("Turret build! Deploymentpoints left: " + PlayerStats.DeploymentPoints);
     }
