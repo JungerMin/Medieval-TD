@@ -13,7 +13,7 @@ public class Node : MonoBehaviour
     private Renderer rend;
     private Color startColour;
 
-    BuildManager buildManager;
+    private BuildManager buildManager;
 
     private void Start()
     {
@@ -23,13 +23,13 @@ public class Node : MonoBehaviour
         buildManager = BuildManager.instance;
     }
 
-    public Vector3 GetBuildPosition()
-    {
-        return transform.position + positionOffset;
-    }
-
     private void OnMouseDown()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+
         if (!buildManager.CanBuild)
         {
             return;
@@ -69,5 +69,10 @@ public class Node : MonoBehaviour
     private void OnMouseExit()
     {
         rend.material.color = startColour;
+    }
+
+    public Vector3 GetBuildPosition()
+    {
+        return transform.position + positionOffset;
     }
 }

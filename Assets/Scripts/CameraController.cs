@@ -19,15 +19,12 @@ public class CameraController : MonoBehaviour
     private Vector3 startPosition;
     private Quaternion startRotation;
 
-    void Start()
+    private void Start()
     {
-        Debug.Log(Screen.height);
-        Debug.Log(Screen.width);
-
         startPosition = new Vector3(35.625f, 77.89f, 15f);
         startRotation = new Quaternion(0f, 0f, 0f, 0f);
     }
-    void Update()
+    private void Update()
     {
         if (Input.GetKey("w"))
         {

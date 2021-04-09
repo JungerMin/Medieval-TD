@@ -28,12 +28,12 @@ public class WaveSpawner : MonoBehaviour
 
     private SpawnState state = SpawnState.COUNTING;
 
-    void Start()
+    private void Start()
     {
         waveCountdown = waves[0].waveCountdown;
     }
 
-    void Update()
+    private void Update()
     {
         if (state == SpawnState.WAITING)
         {   
@@ -68,7 +68,7 @@ public class WaveSpawner : MonoBehaviour
         }
     }
 
-    void WaveCompleted()
+    private void WaveCompleted()
     {
         Debug.Log("Wave Completed!");
 
@@ -87,7 +87,7 @@ public class WaveSpawner : MonoBehaviour
         waveCountdown = waves[nextWave].waveCountdown;
     }
 
-    bool EnemyIsAlive()
+    private bool EnemyIsAlive()
     {
         searchCountdown -= Time.deltaTime;
         if(searchCountdown <= 0f)
@@ -101,7 +101,7 @@ public class WaveSpawner : MonoBehaviour
         return true;
     }
 
-    IEnumerator SpawnWave(Wave _wave)
+    private IEnumerator SpawnWave(Wave _wave)
     {
         Debug.Log("Spawning Wave");
         state = SpawnState.SPAWNING;
@@ -119,7 +119,7 @@ public class WaveSpawner : MonoBehaviour
         yield break;
     }
 
-    void SpawnEnemy(Transform _enemy)
+    private void SpawnEnemy(Transform _enemy)
     {
         Instantiate(_enemy, spawnPoint.position, spawnPoint.rotation);
         Debug.Log("Spawning Enemy: " + _enemy.name);

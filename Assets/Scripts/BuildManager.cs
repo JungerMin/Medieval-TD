@@ -5,6 +5,8 @@ public class BuildManager : MonoBehaviour
     public static BuildManager instance;
     public GameObject buildEffect;
 
+    PlayerStats playerStatsInstance;
+
     private void Awake()
     {
         if (instance != null)
@@ -15,20 +17,25 @@ public class BuildManager : MonoBehaviour
         instance = this;
     }
 
+    private void Start()
+    {
+        playerStatsInstance = PlayerStats.instance;
+    }
+
     private TurretBlueprint turretToBuild;
 
     public bool CanBuild { get { return turretToBuild != null; } }
-    public bool HasMoney { get { return PlayerStats.DeploymentPoints >= turretToBuild.cost; } }
+    public bool HasMoney { get { return playerStatsInstance.GetDP() >= turretToBuild.cost; } }
 
     public void BuildTurretOn (Node node)
     {
-        if (PlayerStats.DeploymentPoints < turretToBuild.cost)
+        if (playerStatsInstance.GetDP() < turretToBuild.cost)
         {
             Debug.Log("Not enough Deploymentpoints!");
             return;
         }
 
-        PlayerStats.DeploymentPoints -= turretToBuild.cost;
+        playerStatsInstance.ReduceDP(turretToBuild.cost);
 
         GameObject turret = (GameObject) Instantiate(turretToBuild.turretPrefab, node.GetBuildPosition(), Quaternion.identity);
         node.turret = turret;
@@ -36,7 +43,7 @@ public class BuildManager : MonoBehaviour
         GameObject effect = (GameObject)Instantiate(buildEffect, node.GetBuildPosition(), Quaternion.identity);
         Destroy(effect, 5f);
 
-        Debug.Log("Turret build! Deploymentpoints left: " + PlayerStats.DeploymentPoints);
+        Debug.Log("Turret build! Deploymentpoints left: " + playerStatsInstance.GetDP());
     }
 
     public void SelectTurretToBuild (TurretBlueprint turret)

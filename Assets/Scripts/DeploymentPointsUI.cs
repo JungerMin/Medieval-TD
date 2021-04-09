@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class DeploymentPointsUI : MonoBehaviour
 {
-    public Text moneyText;
+    public Text dpText;
 
     private void Update()
     {
-        moneyText.text = "DP: " + PlayerStats.DeploymentPoints.ToString();
+        dpText.text = "DP: " + PlayerStats.DeploymentPoints.ToString();
     }
 }

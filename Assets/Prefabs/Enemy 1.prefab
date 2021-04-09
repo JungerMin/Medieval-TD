@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5866584541829830388}
   - component: {fileID: 5866584541829830395}
   - component: {fileID: 5866584541829830394}
-  - component: {fileID: 1482486659677381185}
+  - component: {fileID: 6388132707388287770}
   m_Layer: 0
   m_Name: Enemy 1
   m_TagString: Enemy
@@ -97,7 +97,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1482486659677381185
+--- !u!114 &6388132707388287770
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -106,8 +106,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5866584541829830393}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 044bdd89b442532438558984cbac5474, type: 3}
+  m_Script: {fileID: 11500000, guid: 76b03ae4ded7d7f49bef21b128464f27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  distanceToGoal: 0
+  health: 100
+  deathEffect: {fileID: 1648753991469330663, guid: 2dc8af5fb70f3f047b5ea11eea2f9f0f, type: 3}

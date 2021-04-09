@@ -21,44 +21,12 @@ public class Turret : MonoBehaviour
     public Transform firePoint;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.2f);
     }
 
-    
-    void UpdateTarget()
-    {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
- 
-        float distanceToTarget = Mathf.Infinity;
-        float shortestPath = Mathf.Infinity;
-
-        if (target != null)
-        {
-            distanceToTarget = Vector3.Distance(transform.position, target.transform.position);
-            if (distanceToTarget > range)
-            {
-                target = null;
-            }
-        }
-
-        foreach (GameObject enemy in enemies)
-        {
-            EnemyAI enemyAI = enemy.GetComponent<EnemyAI>();
-            float pathEnemy = enemyAI.distanceToGoal;
-            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-            if (distanceToEnemy <= range && pathEnemy < shortestPath)
-            {
-                distanceToTarget = distanceToEnemy;
-                shortestPath = pathEnemy;
-                target = enemy;
-            }
-        }
-    }
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (target == null)
             return;
@@ -79,7 +47,43 @@ public class Turret : MonoBehaviour
         fireCountdown -= Time.deltaTime;
     }
 
-    void Shoot()
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, range);
+    }
+
+    private void UpdateTarget()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+ 
+        float distanceToTarget = Mathf.Infinity;
+        float shortestPath = Mathf.Infinity;
+
+        if (target != null)
+        {
+            distanceToTarget = Vector3.Distance(transform.position, target.transform.position);
+            if (distanceToTarget > range)
+            {
+                target = null;
+            }
+        }
+
+        foreach (GameObject enemy in enemies)
+        {
+            EnemyAI enemyAI = enemy.GetComponent<EnemyAI>();
+            float pathEnemy = enemyAI.GetDistanceToGoal();
+            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+            if (distanceToEnemy <= range && pathEnemy < shortestPath)
+            {
+                distanceToTarget = distanceToEnemy;
+                shortestPath = pathEnemy;
+                target = enemy;
+            }
+        }
+    }
+
+    private void Shoot()
     {
         GameObject bulletGameObject = (GameObject) Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Bullet bullet = bulletGameObject.GetComponent<Bullet>();
@@ -88,11 +92,5 @@ public class Turret : MonoBehaviour
         {
             bullet.Seek(target.transform);
         }
-    }
-
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, range);    
     }
 }

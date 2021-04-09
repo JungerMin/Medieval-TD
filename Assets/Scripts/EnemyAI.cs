@@ -2,17 +2,25 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
-    public float speed;
+    private PlayerStats playerStatsInstance;
+
+    [Header("Stats")]
+    public float speed = 10f;
+    public int health = 100;
+
+    [Header("Effects")]
+    public GameObject deathEffect;
 
     private Transform target;
     private int waypointIndex = 0;
     private float distanceTravelled;
     private Vector3 lastPosition;
+    private float distanceToGoal = 0;
 
-    public float distanceToGoal = 0;
-
-    void Start()
+    private void Start()
     {
+        playerStatsInstance = PlayerStats.instance;
+
         target = Waypoints.waypoints[0];
 
         for (int i = 0; i < Waypoints.waypoints.Length - 2; i++)
@@ -24,7 +32,7 @@ public class EnemyAI : MonoBehaviour
         lastPosition = transform.position;
     }
 
-    void Update()
+    private void Update()
     {
         Vector3 dir = target.position - transform.position;
         transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
@@ -40,15 +48,44 @@ public class EnemyAI : MonoBehaviour
         distanceToGoal -= distanceTravelled;
     }
 
-    void GetNextWayPoint()
+    private void GetNextWayPoint()
     {
         if (waypointIndex >= Waypoints.waypoints.Length - 1)
         {
-            Destroy(gameObject);
+            EndPath();
             return;
         }
 
         waypointIndex++;
         target = Waypoints.waypoints[waypointIndex];
+    }
+
+    private void EndPath()
+    {
+        playerStatsInstance.ReduceLives();
+        Destroy(gameObject);
+    }
+
+    private void Die()
+    {
+        deathEffect.GetComponent<ParticleSystemRenderer>().material = GetComponent<MeshRenderer>().material;
+        GameObject effect = (GameObject) Instantiate(deathEffect, transform.position, Quaternion.identity);
+        Destroy(effect, 5f);
+        Destroy(gameObject);
+    }
+
+    public float GetDistanceToGoal()
+    {
+        return distanceToGoal;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        
+        if(health <= 0)
+        {
+            Die();
+        }
     }
 }
