@@ -430,6 +430,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 7136975625318206338, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
 --- !u!4 &29050649 stripped
@@ -1258,6 +1262,10 @@ PrefabInstance:
     - target: {fileID: 1611476727810533456, guid: 5be8ee779fedc4e4599e1123e9e6d3cb, type: 3}
       propertyPath: m_Name
       value: Waypoint (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1611476727810533456, guid: 5be8ee779fedc4e4599e1123e9e6d3cb, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9128875632409696586, guid: 5be8ee779fedc4e4599e1123e9e6d3cb, type: 3}
       propertyPath: m_RootOrder
@@ -2270,6 +2278,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 7136975625318206338, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
 --- !u!4 &216598907 stripped
@@ -2846,6 +2858,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Waypoint (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 1611476727810533456, guid: 5be8ee779fedc4e4599e1123e9e6d3cb, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 9128875632409696586, guid: 5be8ee779fedc4e4599e1123e9e6d3cb, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -2968,7 +2984,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 336716557}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Environment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3019,6 +3035,10 @@ PrefabInstance:
     - target: {fileID: 1611476727810533456, guid: 5be8ee779fedc4e4599e1123e9e6d3cb, type: 3}
       propertyPath: m_Name
       value: Waypoint (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1611476727810533456, guid: 5be8ee779fedc4e4599e1123e9e6d3cb, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9128875632409696586, guid: 5be8ee779fedc4e4599e1123e9e6d3cb, type: 3}
       propertyPath: m_RootOrder
@@ -3308,6 +3328,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Waypoint (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 1611476727810533456, guid: 5be8ee779fedc4e4599e1123e9e6d3cb, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 9128875632409696586, guid: 5be8ee779fedc4e4599e1123e9e6d3cb, type: 3}
       propertyPath: m_RootOrder
       value: 16
@@ -3369,6 +3393,10 @@ PrefabInstance:
     - target: {fileID: 1611476727810533456, guid: 5be8ee779fedc4e4599e1123e9e6d3cb, type: 3}
       propertyPath: m_Name
       value: Waypoint (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1611476727810533456, guid: 5be8ee779fedc4e4599e1123e9e6d3cb, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9128875632409696586, guid: 5be8ee779fedc4e4599e1123e9e6d3cb, type: 3}
       propertyPath: m_RootOrder
@@ -3604,6 +3632,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 7136975625318206338, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
 --- !u!4 &417446873 stripped
@@ -3683,6 +3715,10 @@ PrefabInstance:
     - target: {fileID: 1611476727810533456, guid: 5be8ee779fedc4e4599e1123e9e6d3cb, type: 3}
       propertyPath: m_Name
       value: Waypoint (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1611476727810533456, guid: 5be8ee779fedc4e4599e1123e9e6d3cb, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9128875632409696586, guid: 5be8ee779fedc4e4599e1123e9e6d3cb, type: 3}
       propertyPath: m_RootOrder
@@ -3818,6 +3854,10 @@ PrefabInstance:
     - target: {fileID: 1611476727810533456, guid: 5be8ee779fedc4e4599e1123e9e6d3cb, type: 3}
       propertyPath: m_Name
       value: Waypoint (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1611476727810533456, guid: 5be8ee779fedc4e4599e1123e9e6d3cb, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9128875632409696586, guid: 5be8ee779fedc4e4599e1123e9e6d3cb, type: 3}
       propertyPath: m_RootOrder
@@ -4087,7 +4127,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1911320957}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4191,12 +4231,12 @@ MonoBehaviour:
     rate: 1
     waveCountdown: 2.5
   - name: Square 1
-    enemyPrefab: {fileID: 2520368175424055990, guid: 6a5f81f2b81910544bddc1d8cdc478a9, type: 3}
+    enemyPrefab: {fileID: 5866584541829830389, guid: 6aa333d11d39ffe428217759225e4c8b, type: 3}
     count: 3
     rate: 2
     waveCountdown: 5.5
   - name: Triangle 1
-    enemyPrefab: {fileID: 7832234709263084352, guid: 43dd4f98254113b4bae18b7794c9fb7a, type: 3}
+    enemyPrefab: {fileID: 5866584541829830389, guid: fbb2820d79720ad49975f1bd4961a16e, type: 3}
     count: 10
     rate: 5
     waveCountdown: 7.5
@@ -4314,6 +4354,10 @@ PrefabInstance:
     - target: {fileID: 7136975625318206338, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
       propertyPath: m_Name
       value: Ground (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7136975625318206338, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
@@ -4877,6 +4921,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Waypoint (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 1611476727810533456, guid: 5be8ee779fedc4e4599e1123e9e6d3cb, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 9128875632409696586, guid: 5be8ee779fedc4e4599e1123e9e6d3cb, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -5372,7 +5420,7 @@ GameObject:
   m_Component:
   - component: {fileID: 701326319}
   - component: {fileID: 701326320}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Waypoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6134,6 +6182,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7136975625318206338, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
 --- !u!4 &781104458 stripped
@@ -6454,6 +6506,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Waypoint (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 1611476727810533456, guid: 5be8ee779fedc4e4599e1123e9e6d3cb, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 9128875632409696586, guid: 5be8ee779fedc4e4599e1123e9e6d3cb, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -6764,6 +6820,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Waypoint (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1611476727810533456, guid: 5be8ee779fedc4e4599e1123e9e6d3cb, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 9128875632409696586, guid: 5be8ee779fedc4e4599e1123e9e6d3cb, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -6825,6 +6885,10 @@ PrefabInstance:
     - target: {fileID: 1611476727810533456, guid: 5be8ee779fedc4e4599e1123e9e6d3cb, type: 3}
       propertyPath: m_Name
       value: Waypoint (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1611476727810533456, guid: 5be8ee779fedc4e4599e1123e9e6d3cb, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9128875632409696586, guid: 5be8ee779fedc4e4599e1123e9e6d3cb, type: 3}
       propertyPath: m_RootOrder
@@ -7307,6 +7371,10 @@ PrefabInstance:
     - target: {fileID: 7136975625318206338, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
       propertyPath: m_Name
       value: Ground (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7136975625318206338, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
@@ -7895,6 +7963,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 7136975625318206338, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
 --- !u!4 &1022163598 stripped
@@ -8146,6 +8218,10 @@ PrefabInstance:
     - target: {fileID: 7136975625318206338, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
       propertyPath: m_Name
       value: Ground (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7136975625318206338, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
@@ -8405,6 +8481,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7136975625318206338, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
 --- !u!4 &1127174014 stripped
@@ -8609,6 +8689,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Waypoint (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 1611476727810533456, guid: 5be8ee779fedc4e4599e1123e9e6d3cb, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 9128875632409696586, guid: 5be8ee779fedc4e4599e1123e9e6d3cb, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -8796,7 +8880,7 @@ GameObject:
   - component: {fileID: 1165901596}
   - component: {fileID: 1165901595}
   - component: {fileID: 1165901594}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundPlane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9488,6 +9572,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Waypoint (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 1611476727810533456, guid: 5be8ee779fedc4e4599e1123e9e6d3cb, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 9128875632409696586, guid: 5be8ee779fedc4e4599e1123e9e6d3cb, type: 3}
       propertyPath: m_RootOrder
       value: 18
@@ -10094,6 +10182,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 7136975625318206338, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
 --- !u!4 &1279759608 stripped
@@ -10532,6 +10624,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 7136975625318206338, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
 --- !u!4 &1299278163 stripped
@@ -10721,6 +10817,10 @@ PrefabInstance:
     - target: {fileID: 7136975625318206338, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
       propertyPath: m_Name
       value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 7136975625318206338, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
@@ -11506,6 +11606,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Waypoint (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1611476727810533456, guid: 5be8ee779fedc4e4599e1123e9e6d3cb, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 9128875632409696586, guid: 5be8ee779fedc4e4599e1123e9e6d3cb, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -11864,6 +11968,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 7136975625318206338, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
 --- !u!4 &1471933181 stripped
@@ -11992,6 +12100,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 7136975625318206338, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
 --- !u!4 &1486841039 stripped
@@ -12057,6 +12169,10 @@ PrefabInstance:
     - target: {fileID: 7136975625318206338, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
       propertyPath: m_Name
       value: Ground (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7136975625318206338, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
@@ -12185,6 +12301,10 @@ PrefabInstance:
     - target: {fileID: 7136975625318206338, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
       propertyPath: m_Name
       value: Ground (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7136975625318206338, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
@@ -12452,6 +12572,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Waypoint (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 1611476727810533456, guid: 5be8ee779fedc4e4599e1123e9e6d3cb, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 9128875632409696586, guid: 5be8ee779fedc4e4599e1123e9e6d3cb, type: 3}
       propertyPath: m_RootOrder
       value: 15
@@ -12674,6 +12798,131 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4309685016428506694, guid: 498c078778fa58d4597ad2b8cfb1303e, type: 3}
   m_PrefabInstance: {fileID: 1616986905}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1617164258
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1911320957}
+    m_Modifications:
+    - target: {fileID: 2759235863712064643, guid: 131cd03cf83fb7545af2d8e5929b9f56, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1911320961}
+    - target: {fileID: 2759235863712064643, guid: 131cd03cf83fb7545af2d8e5929b9f56, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectLaserTurret
+      objectReference: {fileID: 0}
+    - target: {fileID: 6366499385482081787, guid: 131cd03cf83fb7545af2d8e5929b9f56, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b9d05e53a663bd04198a014719e1fb08, type: 3}
+    - target: {fileID: 6531262291291164240, guid: 131cd03cf83fb7545af2d8e5929b9f56, type: 3}
+      propertyPath: m_Name
+      value: DeployLaserTurret
+      objectReference: {fileID: 0}
+    - target: {fileID: 9016646247023754744, guid: 131cd03cf83fb7545af2d8e5929b9f56, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9016646247023754744, guid: 131cd03cf83fb7545af2d8e5929b9f56, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9016646247023754744, guid: 131cd03cf83fb7545af2d8e5929b9f56, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9016646247023754744, guid: 131cd03cf83fb7545af2d8e5929b9f56, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9016646247023754744, guid: 131cd03cf83fb7545af2d8e5929b9f56, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9016646247023754744, guid: 131cd03cf83fb7545af2d8e5929b9f56, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9016646247023754744, guid: 131cd03cf83fb7545af2d8e5929b9f56, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9016646247023754744, guid: 131cd03cf83fb7545af2d8e5929b9f56, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9016646247023754744, guid: 131cd03cf83fb7545af2d8e5929b9f56, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9016646247023754744, guid: 131cd03cf83fb7545af2d8e5929b9f56, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9016646247023754744, guid: 131cd03cf83fb7545af2d8e5929b9f56, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9016646247023754744, guid: 131cd03cf83fb7545af2d8e5929b9f56, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9016646247023754744, guid: 131cd03cf83fb7545af2d8e5929b9f56, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9016646247023754744, guid: 131cd03cf83fb7545af2d8e5929b9f56, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9016646247023754744, guid: 131cd03cf83fb7545af2d8e5929b9f56, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9016646247023754744, guid: 131cd03cf83fb7545af2d8e5929b9f56, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9016646247023754744, guid: 131cd03cf83fb7545af2d8e5929b9f56, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9016646247023754744, guid: 131cd03cf83fb7545af2d8e5929b9f56, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9016646247023754744, guid: 131cd03cf83fb7545af2d8e5929b9f56, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9016646247023754744, guid: 131cd03cf83fb7545af2d8e5929b9f56, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9016646247023754744, guid: 131cd03cf83fb7545af2d8e5929b9f56, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 131cd03cf83fb7545af2d8e5929b9f56, type: 3}
+--- !u!224 &1617164259 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 9016646247023754744, guid: 131cd03cf83fb7545af2d8e5929b9f56, type: 3}
+  m_PrefabInstance: {fileID: 1617164258}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1617164260 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1297687217843189513, guid: 131cd03cf83fb7545af2d8e5929b9f56, type: 3}
+  m_PrefabInstance: {fileID: 1617164258}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1618252275
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14336,6 +14585,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Waypoint (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1611476727810533456, guid: 5be8ee779fedc4e4599e1123e9e6d3cb, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 9128875632409696586, guid: 5be8ee779fedc4e4599e1123e9e6d3cb, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -14694,6 +14947,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 7136975625318206338, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
 --- !u!4 &1891805218 stripped
@@ -14796,6 +15053,7 @@ RectTransform:
   m_Children:
   - {fileID: 2090384451}
   - {fileID: 67040112}
+  - {fileID: 1617164259}
   - {fileID: 504956310}
   m_Father: {fileID: 621862902}
   m_RootOrder: 0
@@ -14887,8 +15145,12 @@ MonoBehaviour:
   missileLauncher:
     turretPrefab: {fileID: 52500113867075985, guid: 5a9ae4ebdf26cad46b5c73501541ce58, type: 3}
     cost: 20
+  laserTurret:
+    turretPrefab: {fileID: 6081389136291013589, guid: 327d3d865d75bb9429b051ba06e61790, type: 3}
+    cost: 5
   standardTurretCost: {fileID: 463571137}
   missileLauncherCost: {fileID: 2050574403}
+  laserTurretCost: {fileID: 1617164260}
 --- !u!1 &1914196937
 GameObject:
   m_ObjectHideFlags: 0
@@ -15271,6 +15533,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Waypoint (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1611476727810533456, guid: 5be8ee779fedc4e4599e1123e9e6d3cb, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 9128875632409696586, guid: 5be8ee779fedc4e4599e1123e9e6d3cb, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -15504,6 +15770,10 @@ PrefabInstance:
     - target: {fileID: 7136975625318206338, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
       propertyPath: m_Name
       value: Ground (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7136975625318206338, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
@@ -15767,6 +16037,10 @@ PrefabInstance:
     - target: {fileID: 7136975625318206338, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
       propertyPath: m_Name
       value: Ground (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7136975625318206338, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f80c1878176a11049bae8cfd1374be27, type: 3}
@@ -16520,6 +16794,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Waypoint (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1611476727810533456, guid: 5be8ee779fedc4e4599e1123e9e6d3cb, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 9128875632409696586, guid: 5be8ee779fedc4e4599e1123e9e6d3cb, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -16682,6 +16960,10 @@ PrefabInstance:
     - target: {fileID: 1611476727810533456, guid: 5be8ee779fedc4e4599e1123e9e6d3cb, type: 3}
       propertyPath: m_Name
       value: Waypoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 1611476727810533456, guid: 5be8ee779fedc4e4599e1123e9e6d3cb, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9128875632409696586, guid: 5be8ee779fedc4e4599e1123e9e6d3cb, type: 3}
       propertyPath: m_RootOrder

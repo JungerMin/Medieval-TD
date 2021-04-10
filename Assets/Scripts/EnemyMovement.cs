@@ -1,15 +1,12 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAI : MonoBehaviour
+[RequireComponent(typeof(Enemy))]
+public class EnemyMovement : MonoBehaviour
 {
     private PlayerStats playerStatsInstance;
-
-    [Header("Stats")]
-    public float speed = 10f;
-    public int health = 100;
-
-    [Header("Effects")]
-    public GameObject deathEffect;
+    private Enemy enemy;
 
     private Transform target;
     private int waypointIndex = 0;
@@ -20,6 +17,7 @@ public class EnemyAI : MonoBehaviour
     private void Start()
     {
         playerStatsInstance = PlayerStats.instance;
+        enemy = GetComponent<Enemy>();
 
         target = Waypoints.waypoints[0];
 
@@ -35,7 +33,7 @@ public class EnemyAI : MonoBehaviour
     private void Update()
     {
         Vector3 dir = target.position - transform.position;
-        transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
+        transform.Translate(dir.normalized * enemy.currentSpeed * Time.deltaTime, Space.World);
 
         if (Vector3.Distance(transform.position, target.position) <= 0.2f)
         {
@@ -66,26 +64,8 @@ public class EnemyAI : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void Die()
-    {
-        deathEffect.GetComponent<ParticleSystemRenderer>().material = GetComponent<MeshRenderer>().material;
-        GameObject effect = (GameObject) Instantiate(deathEffect, transform.position, Quaternion.identity);
-        Destroy(effect, 5f);
-        Destroy(gameObject);
-    }
-
     public float GetDistanceToGoal()
     {
         return distanceToGoal;
-    }
-
-    public void TakeDamage(int damage)
-    {
-        health -= damage;
-        
-        if(health <= 0)
-        {
-            Die();
-        }
     }
 }

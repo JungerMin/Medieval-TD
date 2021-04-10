@@ -49,6 +49,11 @@ public class PlayerStats : MonoBehaviour
         Lives--;
     }
 
+    public void AddDP(int dp)
+    {
+        DeploymentPoints += dp;
+    }
+
     public int GetDP()
     {
         return DeploymentPoints;

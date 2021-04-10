@@ -47,6 +47,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 30
   fireRate: 0.5
+  damage: 60
+  projectileSpeed: 30
+  explosionRadius: 8
+  useLaser: 0
+  damageOverTime: 10
+  slowPrefab: {fileID: 7317659347512560645, guid: fb08c949796263e43bfbb21d5ba07a35, type: 3}
+  lineRenderer: {fileID: 0}
+  impactEffect: {fileID: 0}
+  impactLight: {fileID: 0}
   enemyTag: Enemy
   partToRotate: {fileID: 2347939159330298622}
   rotationSpeed: 10
@@ -64,7 +73,7 @@ GameObject:
   - component: {fileID: 3228415202203572632}
   - component: {fileID: 3535261989411127299}
   m_Layer: 0
-  m_Name: Turret
+  m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,7 +87,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 94304331208945286}
   m_LocalRotation: {x: -0.50000006, y: 0.5, z: 0.50000006, w: 0.5}
-  m_LocalPosition: {x: -0.13363303, y: 0.19795358, z: 0.0135425925}
+  m_LocalPosition: {x: -0.134, y: 0.072, z: 0.014}
   m_LocalScale: {x: 0.49999988, y: 0.49999985, z: 0.4999999}
   m_Children: []
   m_Father: {fileID: 2347939159330298622}
@@ -147,7 +156,7 @@ GameObject:
   - component: {fileID: 5878019356561836719}
   - component: {fileID: 854322700311486027}
   m_Layer: 0
-  m_Name: Stand
+  m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -162,7 +171,7 @@ Transform:
   m_GameObject: {fileID: 4678486208866617168}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: -0, y: -0.1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0.8}
   m_Children: []
   m_Father: {fileID: 860561636971686699}
   m_RootOrder: 0
@@ -242,7 +251,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5009026801208914650}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.027085155, y: 2.299, z: 0.26726604}
+  m_LocalPosition: {x: 0.027085155, y: 1.89, z: 0.26726604}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 7082559403791279039}

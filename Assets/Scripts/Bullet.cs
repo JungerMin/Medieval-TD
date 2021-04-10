@@ -5,9 +5,9 @@ public class Bullet : MonoBehaviour
     private Transform target;
 
     [Header("Stats")]
-    public float speed = 70f;
-    public float explosionRadius = 0f;
-    public int damage = 20;
+    private float speed;
+    private float explosionRadius;
+    private int damage;
 
     [Header("Effects")]
     public GameObject impactEffect;
@@ -70,7 +70,7 @@ public class Bullet : MonoBehaviour
 
     private void Damage (Transform enemy)
     {
-        EnemyAI e = enemy.GetComponent<EnemyAI>();
+        Enemy e = enemy.GetComponent<Enemy>();
 
         if (e != null)
         {
@@ -81,5 +81,20 @@ public class Bullet : MonoBehaviour
     public void Seek(Transform _target)
     {
         target = _target;
+    }
+
+    public void SetDamage(int _damage)
+    {
+        damage = _damage;
+    }
+
+    public void SetProjectileSpeed(float _speed)
+    {
+        speed = _speed;
+    }
+
+    public void SetExplosionRadius(float _explosionRadius)
+    {
+        explosionRadius = _explosionRadius;
     }
 }

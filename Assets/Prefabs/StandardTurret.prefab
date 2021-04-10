@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 5184419624559165680}
   - component: {fileID: 8527687994165776029}
   m_Layer: 0
-  m_Name: Turret
+  m_Name: StandardTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -130,6 +130,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 15
   fireRate: 1
+  damage: 20
+  projectileSpeed: 80
+  explosionRadius: 0
+  useLaser: 0
+  damageOverTime: 10
+  slowPrefab: {fileID: 7317659347512560645, guid: fb08c949796263e43bfbb21d5ba07a35, type: 3}
+  lineRenderer: {fileID: 0}
+  impactEffect: {fileID: 0}
+  impactLight: {fileID: 0}
   enemyTag: Enemy
   partToRotate: {fileID: 4256337671862003460}
   rotationSpeed: 10
