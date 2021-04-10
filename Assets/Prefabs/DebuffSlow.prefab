@@ -47,4 +47,4 @@ MonoBehaviour:
   startTime: 0
   repeatTime: 0
   target: {fileID: 0}
-  slowPct: 30
+  slowPct: 40

@@ -113,6 +113,8 @@ MonoBehaviour:
   speed: 10
   health: 100
   value: 1
+  currentSpeed: 0
+  slow: {fileID: 0}
   deathEffect: {fileID: 1648753991469330663, guid: 2dc8af5fb70f3f047b5ea11eea2f9f0f, type: 3}
 --- !u!114 &2325470258904636608
 MonoBehaviour:

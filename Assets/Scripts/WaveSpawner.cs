@@ -35,6 +35,11 @@ public class WaveSpawner : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.GameIsOver)
+        {
+            this.enabled = false;
+        }
+
         if (state == SpawnState.WAITING)
         {   
             //Check if all enemies of one wave are dead

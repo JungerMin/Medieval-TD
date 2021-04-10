@@ -26,6 +26,12 @@ public class CameraController : MonoBehaviour
     }
     private void Update()
     {
+        if (GameManager.GameIsOver)
+        {
+            this.enabled = false;
+            return;
+        }
+
         if (Input.GetKey("w"))
         {
             transform.Translate(Vector3.forward * panSpeed * Time.deltaTime, Space.Self);

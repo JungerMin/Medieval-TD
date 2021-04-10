@@ -9,17 +9,28 @@ public class SlowDebuff : TimedEffect
     protected override void Start()
     {
         base.Start();
-        slowPct = slowPct / 100;
+        slowPct /= 100;
     }
 
     protected override void ApplyEffect()
     {
-        target.Slow(slowPct);
+        if(target != null)
+        {
+            target.Slow(slowPct);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+            
     }
 
     protected override void EndEffect()
     {
-        target.Slow(0);
+        if(target != null)
+        {
+            target.Slow(0);
+        }
         base.EndEffect();
     }
 }

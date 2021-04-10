@@ -8,8 +8,10 @@ public class Enemy : MonoBehaviour
     public float speed = 10f;
     public float health = 100f;
     public int value = 1;
-    [HideInInspector]
+    //[HideInInspector]
     public float currentSpeed;
+    //[HideInInspector]
+    public GameObject slow;
 
     [Header("Effects")]
     public GameObject deathEffect;
@@ -30,6 +32,12 @@ public class Enemy : MonoBehaviour
         playerStatsInstance.AddDP(value);
     }
 
+    private void ResetSlow()
+    {
+        slow = null;
+        CancelInvoke();
+    }
+
     public void TakeDamage(float damage)
     {
         health -= damage;
@@ -37,6 +45,17 @@ public class Enemy : MonoBehaviour
         if(health <= 0)
         {
             Die();
+        }
+    }
+
+    public void DebuffSlow(GameObject debuff)
+    {
+        if (slow == null)
+        {
+        slow = debuff;
+        slow.GetComponent<SlowDebuff>().target = this;
+        Instantiate(slow);
+        Invoke("ResetSlow", 1f);
         }
     }
 

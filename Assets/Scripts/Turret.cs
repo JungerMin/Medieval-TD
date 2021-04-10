@@ -4,6 +4,7 @@ public class Turret : MonoBehaviour
 {
     private GameObject target;
     private Enemy targetEnemy;
+    private GameObject currentDebuff;
 
     [Header("Turret Stats")]
 
@@ -100,7 +101,6 @@ public class Turret : MonoBehaviour
                 targetEnemy = enemy.GetComponent<Enemy>();
             }
         }
-        slowPrefab.GetComponent<SlowDebuff>().target = targetEnemy;
     }
 
     private void LockOnTarget()
@@ -114,7 +114,7 @@ public class Turret : MonoBehaviour
     private void Laser()
     {
         targetEnemy.TakeDamage(damageOverTime * Time.deltaTime);
-        Instantiate(slowPrefab);
+        targetEnemy.DebuffSlow(slowPrefab);
 
         if (!lineRenderer.enabled)
         {

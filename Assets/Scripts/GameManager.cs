@@ -3,15 +3,19 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private PlayerStats playerStatsInstance;
-    private bool gameEnd = false;
+    [HideInInspector]
+    public static bool GameIsOver;
+
+    public GameObject gameOverUI;
 
     private void Start()
     {
         playerStatsInstance = PlayerStats.instance;
+        GameIsOver = false;
     }
     private void Update()
     {
-        if (gameEnd)
+        if (GameIsOver)
         {
             return;
         }
@@ -24,7 +28,8 @@ public class GameManager : MonoBehaviour
 
     private void EndGame()
     {
-        gameEnd = true;
-        Debug.Log("Game Over!");
+        GameIsOver = true;
+
+        gameOverUI.SetActive(true);
     }
 }
