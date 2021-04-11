@@ -5,7 +5,12 @@ public class Node : MonoBehaviour
 {
     public Color hoverColour;
     public Color notEnoughMoneyColour;
+    public Color selectedColour;
+    public Color canSelectColor;
     public Vector3 positionOffset;
+
+    [HideInInspector]
+    public bool isSelected = false;
 
     [Header("Optional")]
     public GameObject turret;
@@ -30,24 +35,39 @@ public class Node : MonoBehaviour
             return;
         }
 
-        if (!buildManager.CanBuild)
-        {
-            return;
-        }
+
 
         if (turret != null)
         {
-            Debug.Log("Can't build there! -  TODO: Display on screen.");
+            buildManager.SelectNode(this);
             return;
         }
 
-        buildManager.BuildTurretOn(this);
+        if (!buildManager.CanBuild)
+        {
+            if (!buildManager.HasTurret())
+            {
+                buildManager.DeselectNode();
+            }
+            return;
+        }
+        else if (buildManager.CanBuild)
+        {
+            buildManager.BuildTurretOn(this);
+            rend.material.color = startColour;
+        }       
     }
 
     private void OnMouseEnter()
     {
         if (EventSystem.current.IsPointerOverGameObject())
         {
+            return;
+        }
+
+        if (turret != null && !isSelected)
+        {
+            rend.material.color = canSelectColor;
             return;
         }
 
@@ -63,11 +83,25 @@ public class Node : MonoBehaviour
         {
             rend.material.color = notEnoughMoneyColour;
         }
-        
     }
 
     private void OnMouseExit()
     {
+        if (!isSelected)
+        {
+            rend.material.color = startColour;
+        }
+    }
+
+    public void Select()
+    {
+        isSelected = true;
+        rend.material.color = selectedColour;
+    }
+
+    public void Deselect()
+    {
+        isSelected = false;
         rend.material.color = startColour;
     }
 

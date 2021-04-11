@@ -111,5 +111,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColour: {r: 0.3973834, g: 0.5972273, b: 0.8867924, a: 0}
   notEnoughMoneyColour: {r: 0.9622642, g: 0.040850822, b: 0.040850822, a: 0}
+  selectedColour: {r: 0.3186632, g: 0.8773585, b: 0.40364107, a: 0}
+  canSelectColor: {r: 0.96588904, g: 0.9716981, b: 0.03208439, a: 0}
   positionOffset: {x: 0, y: 0.5, z: 0}
+  isSelected: 0
   turret: {fileID: 0}

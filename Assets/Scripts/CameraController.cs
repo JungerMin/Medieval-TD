@@ -5,7 +5,7 @@ public class CameraController : MonoBehaviour
     [Header("Camera Settings")]
     public float panSpeed = 30f;
     public float rotationSpeed = 30f;
-    public float scrollSpeed = 3f;
+    public float zoomSpeed = 3f;
     public Camera mainCamera;
 
     [Header("Camera Restrictions")]
@@ -68,15 +68,15 @@ public class CameraController : MonoBehaviour
 
         if (Input.GetKey("left shift"))
         {
-            pos.y -= 10 * scrollSpeed * Time.deltaTime;
+            pos.y -= 10 * zoomSpeed * Time.deltaTime;
         }
 
         if (Input.GetKey("space"))
         {
-            pos.y += 10 * scrollSpeed * Time.deltaTime;
+            pos.y += 10 * zoomSpeed * Time.deltaTime;
         }
 
-        pos.y -= scroll * 1000 * scrollSpeed * Time.deltaTime;
+        pos.y -= scroll * 1000 * zoomSpeed * Time.deltaTime;
         pos.y = Mathf.Clamp(pos.y, minY, maxY);
         pos.x = Mathf.Clamp(pos.x, minX, maxX);
         pos.z = Mathf.Clamp(pos.z, minZ, maxZ);

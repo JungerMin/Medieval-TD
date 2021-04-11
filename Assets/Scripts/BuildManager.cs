@@ -4,8 +4,10 @@ public class BuildManager : MonoBehaviour
 {
     public static BuildManager instance;
     public GameObject buildEffect;
+    public NodeUI nodeUI;
 
-    PlayerStats playerStatsInstance;
+    private PlayerStats playerStatsInstance;
+    private Node selectedNode;
 
     private void Awake()
     {
@@ -44,10 +46,52 @@ public class BuildManager : MonoBehaviour
         Destroy(effect, 5f);
 
         Debug.Log("Turret build! Deploymentpoints left: " + playerStatsInstance.GetDP());
+
+        DeselectTurretToBuild();
+    }
+
+    public void SelectNode(Node node)
+    {
+        if(selectedNode == node)
+        {
+            DeselectNode();
+            return;
+        }
+        else if(selectedNode != null)
+        {
+            selectedNode.Deselect();
+        }
+
+        selectedNode = node;
+        DeselectTurretToBuild(); ;
+
+        nodeUI.SetTarget(node);
+        selectedNode.Select();
+    }
+
+    public void DeselectNode()
+    {
+        if (selectedNode != null)
+        {
+            selectedNode.Deselect();
+        }
+        selectedNode = null;
+        nodeUI.Hide();
     }
 
     public void SelectTurretToBuild (TurretBlueprint turret)
     {
         turretToBuild = turret;
+        DeselectNode();
+    }
+
+    public void DeselectTurretToBuild()
+    {
+        turretToBuild = null;
+    }
+
+    public bool HasTurret()
+    {
+        return turretToBuild != null;
     }
 }
