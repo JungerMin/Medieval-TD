@@ -1,12 +1,22 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NodeUI : MonoBehaviour
 {
-    public GameObject backPoint;
-    public Transform mainCamera;
     public GameObject nodeUI;
 
+    [Header("UI Position")]
+    public GameObject backPoint;
+    public Transform mainCamera;
+
+    [Header("Turret Stats")]
+    public Text attack;
+    public Text secondary;
+    public Text price;
+
     private Node target;
+    private Turret turret;
+    private TurretBlueprint turretBlueprint;
 
     private void Update()
     {
@@ -26,6 +36,13 @@ public class NodeUI : MonoBehaviour
         float scaling = 0.04f * mainCamera.position.y + 0.57f;
 
         transform.position = target.GetBuildPosition() + dir.normalized * scaling;
+
+        turret = target.turret.GetComponent<Turret>();
+        turretBlueprint = target.turretBlueprint;
+
+        SetAttack();
+        SetSecondary();
+        SetSell();
     }
 
     public void SetTarget(Node _target)
@@ -40,5 +57,40 @@ public class NodeUI : MonoBehaviour
     public void Hide()
     {
         nodeUI.SetActive(false);
+    }
+
+    public void SetAttack()
+    {
+        if (turret.useLaser)
+        {
+            attack.text = "DoT: " + turret.damageOverTime.ToString();
+        }
+        else
+        {
+            attack.text = "Dmg: " + turret.damage.ToString();
+        }
+    }
+
+    public void SetSecondary()
+    {
+        if (turret.useLaser)
+        {
+            secondary.text = "Debuff: Slow";
+        }
+        else
+        {
+            secondary.text = "Firerate: " + turret.fireRate.ToString();
+        }
+    }
+
+    public void Sell()
+    {
+        target.SellTurret();
+        BuildManager.instance.DeselectNode();
+    }
+
+    public void SetSell()
+    {
+        price.text = turretBlueprint.GetSellAmount().ToString() + " DP";
     }
 }

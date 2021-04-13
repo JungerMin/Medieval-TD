@@ -12,13 +12,16 @@ public class Node : MonoBehaviour
     [HideInInspector]
     public bool isSelected = false;
 
-    [Header("Optional")]
+    [HideInInspector]
     public GameObject turret;
+    [HideInInspector]
+    public TurretBlueprint turretBlueprint;
 
     private Renderer rend;
     private Color startColour;
 
     private BuildManager buildManager;
+    private PlayerStats playerStatsInstance;
 
     private void Start()
     {
@@ -26,6 +29,7 @@ public class Node : MonoBehaviour
         startColour = rend.material.color;
 
         buildManager = BuildManager.instance;
+        playerStatsInstance = PlayerStats.instance;
     }
 
     private void OnMouseDown()
@@ -53,7 +57,7 @@ public class Node : MonoBehaviour
         }
         else if (buildManager.CanBuild)
         {
-            buildManager.BuildTurretOn(this);
+            BuildTurret(buildManager.GetTurretToBuild());
             rend.material.color = startColour;
         }       
     }
@@ -91,6 +95,47 @@ public class Node : MonoBehaviour
         {
             rend.material.color = startColour;
         }
+    }
+
+    private void BuildTurret (TurretBlueprint blueprint)
+    {
+        if (playerStatsInstance.GetDP() < blueprint.cost)
+        {
+            Debug.Log("Not enough Deploymentpoints!");
+            return;
+        }
+
+        if (blueprint.isUpgraded)
+        {
+            GameObject _turret = (GameObject)Instantiate(blueprint.upgradedPrefab, GetBuildPosition(), Quaternion.identity);
+            turret = _turret;
+            playerStatsInstance.ReduceDP(blueprint.upgradedCost);
+        }
+        else
+        {
+            GameObject _turret = (GameObject)Instantiate(blueprint.turretPrefab, GetBuildPosition(), Quaternion.identity);
+            turret = _turret;
+            playerStatsInstance.ReduceDP(blueprint.cost);
+        }
+
+        turretBlueprint = blueprint;
+
+        GameObject effect = (GameObject)Instantiate(blueprint.buildEffect, GetBuildPosition(), Quaternion.identity);
+        Destroy(effect, 5f);
+
+        Debug.Log("Turret build!");
+
+        buildManager.DeselectTurretToBuild();
+    }
+
+    public void SellTurret()
+    {
+        PlayerStats.DeploymentPoints += turretBlueprint.GetSellAmount();
+        GameObject effect = (GameObject)Instantiate(turretBlueprint.sellEffect, GetBuildPosition(), Quaternion.identity);
+        Destroy(effect, 5f);
+
+        Destroy(turret);
+        turretBlueprint = null;
     }
 
     public void Select()

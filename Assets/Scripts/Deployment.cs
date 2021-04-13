@@ -39,4 +39,25 @@ public class Deployment : MonoBehaviour
     {
         buildManager.SelectTurretToBuild(laserTurret);
     }
+
+    public void UpgradeStandardTurret()
+    {
+        standardTurret.isUpgraded = true;
+        standardTurretCost.text = standardTurret.upgradedCost.ToString();
+        standardTurret.upgradeImage.SetActive(true);
+    }
+
+    public void UpgradeMissileLauncher()
+    {
+        missileLauncher.isUpgraded = true;
+        missileLauncherCost.text = missileLauncher.upgradedCost.ToString();
+        missileLauncher.upgradeImage.SetActive(true);
+    }
+
+    public void UpgradeLaserTurret()
+    {
+        laserTurret.isUpgraded = true;
+        laserTurretCost.text = laserTurret.upgradedCost.ToString();
+        laserTurret.upgradeImage.SetActive(true);
+    }
 }

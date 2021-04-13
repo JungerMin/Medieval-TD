@@ -3,7 +3,6 @@ using UnityEngine;
 public class BuildManager : MonoBehaviour
 {
     public static BuildManager instance;
-    public GameObject buildEffect;
     public NodeUI nodeUI;
 
     private PlayerStats playerStatsInstance;
@@ -27,28 +26,8 @@ public class BuildManager : MonoBehaviour
     private TurretBlueprint turretToBuild;
 
     public bool CanBuild { get { return turretToBuild != null; } }
+
     public bool HasMoney { get { return playerStatsInstance.GetDP() >= turretToBuild.cost; } }
-
-    public void BuildTurretOn (Node node)
-    {
-        if (playerStatsInstance.GetDP() < turretToBuild.cost)
-        {
-            Debug.Log("Not enough Deploymentpoints!");
-            return;
-        }
-
-        playerStatsInstance.ReduceDP(turretToBuild.cost);
-
-        GameObject turret = (GameObject) Instantiate(turretToBuild.turretPrefab, node.GetBuildPosition(), Quaternion.identity);
-        node.turret = turret;
-
-        GameObject effect = (GameObject)Instantiate(buildEffect, node.GetBuildPosition(), Quaternion.identity);
-        Destroy(effect, 5f);
-
-        Debug.Log("Turret build! Deploymentpoints left: " + playerStatsInstance.GetDP());
-
-        DeselectTurretToBuild();
-    }
 
     public void SelectNode(Node node)
     {
@@ -83,6 +62,11 @@ public class BuildManager : MonoBehaviour
     {
         turretToBuild = turret;
         DeselectNode();
+    }
+
+    public TurretBlueprint GetTurretToBuild()
+    {
+        return turretToBuild;
     }
 
     public void DeselectTurretToBuild()
