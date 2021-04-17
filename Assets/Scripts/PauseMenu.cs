@@ -46,6 +46,7 @@ public class PauseMenu : MonoBehaviour
     public void Yes()
     {
         // Temporary Restart level
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(0);
     }
 }

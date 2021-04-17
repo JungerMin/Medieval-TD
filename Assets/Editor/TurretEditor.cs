@@ -21,7 +21,7 @@ public class TurretEditor : Editor
         if (turretEditor.useLaser)
         {
             turretEditor.range = EditorGUILayout.Slider("Range", turretEditor.range, 0f, 100f);
-            turretEditor.damageOverTime = EditorGUILayout.IntSlider("DoT", turretEditor.damageOverTime, 1, 100);
+            turretEditor.damageOverTime = EditorGUILayout.IntSlider("DoT", turretEditor.damageOverTime, 0, 100);
             turretEditor.slowPrefab = (GameObject)EditorGUILayout.ObjectField("Debuff", turretEditor.slowPrefab, typeof(GameObject), true);
 
             showLaserVFX = EditorGUILayout.BeginFoldoutHeaderGroup(showLaserVFX, "Laser VFX");
@@ -37,7 +37,7 @@ public class TurretEditor : Editor
         else
         {
             turretEditor.range = EditorGUILayout.Slider("Range", turretEditor.range, 0f, 100f);
-            turretEditor.damage = EditorGUILayout.IntSlider("Damage", turretEditor.damage, 1, 100);
+            turretEditor.damage = EditorGUILayout.IntSlider("Damage", turretEditor.damage, 0, 100);
             turretEditor.fireRate = EditorGUILayout.Slider("Fire Rate", turretEditor.fireRate, 0f, 10f);
             turretEditor.projectileSpeed = EditorGUILayout.Slider("Projectile speed", turretEditor.projectileSpeed, 1, 200);
             turretEditor.explosionRadius = EditorGUILayout.Slider("Explosion Radius", turretEditor.explosionRadius, 0, 50);
