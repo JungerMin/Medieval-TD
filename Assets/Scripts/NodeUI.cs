@@ -7,7 +7,7 @@ public class NodeUI : MonoBehaviour
 
     [Header("UI Position")]
     public GameObject backPoint;
-    public Transform mainCamera;
+    private Transform mainCamera;
 
     [Header("Turret Stats")]
     public Text attack;
@@ -17,6 +17,11 @@ public class NodeUI : MonoBehaviour
     private Node target;
     private Turret turret;
     private TurretBlueprint turretBlueprint;
+
+    private void Start()
+    {
+        mainCamera = Camera.main.transform;
+    }
 
     private void Update()
     {

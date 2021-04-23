@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
@@ -6,7 +7,8 @@ public class Enemy : MonoBehaviour
 
     [Header("Stats")]
     public float speed = 10f;
-    public float health = 100f;
+    public float startHealth = 100f;
+    private float health;
     public int value = 1;
     //[HideInInspector]
     public float currentSpeed;
@@ -16,16 +18,28 @@ public class Enemy : MonoBehaviour
     [Header("Effects")]
     public GameObject deathEffect;
 
+    [Header("Unity Stuff")]
+    public GameObject enemyUI;
+    public Image healthBar;
+    private Transform mainCamera;
+
     private void Start()
     {
         playerStatsInstance = PlayerStats.instance;
         currentSpeed = speed;
+        health = startHealth;
+        mainCamera = Camera.main.transform;
+    }
+
+    private void Update()
+    {
+        SetPosition();
     }
 
     private void Die()
     {
         deathEffect.GetComponent<ParticleSystemRenderer>().material = GetComponent<MeshRenderer>().material;
-        GameObject effect = (GameObject) Instantiate(deathEffect, transform.position, Quaternion.identity);
+        GameObject effect = (GameObject)Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(effect, 5f);
         Destroy(gameObject);
 
@@ -41,8 +55,10 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
-        
-        if(health <= 0)
+
+        healthBar.fillAmount = health / startHealth;
+
+        if (health <= 0)
         {
             Die();
         }
@@ -52,15 +68,20 @@ public class Enemy : MonoBehaviour
     {
         if (slow == null)
         {
-        slow = debuff;
-        slow.GetComponent<SlowDebuff>().target = this;
-        Instantiate(slow);
-        Invoke("ResetSlow", 1f);
+            slow = debuff;
+            slow.GetComponent<SlowDebuff>().target = this;
+            Instantiate(slow);
+            Invoke("ResetSlow", 1f);
         }
     }
 
     public void Slow(float pct)
     {
         currentSpeed = speed * (1f - pct);
+    }
+
+    private void SetPosition()
+    {
+        enemyUI.GetComponent<RectTransform>().rotation = mainCamera.rotation;
     }
 }
