@@ -8185,6 +8185,7 @@ MonoBehaviour:
   rotationSpeed: 90
   zoomSpeed: 3
   mainCamera: {fileID: 963194227}
+  enableRotation: 1
   minY: 10
   maxY: 77.89
   minX: -10

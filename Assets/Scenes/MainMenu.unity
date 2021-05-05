@@ -7390,7 +7390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55a054d31b73f3541904e1c0549d991c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLoad: DemoLevel
+  levelToLoad: LevelSelect
 --- !u!1001 &640968928
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23230,7 +23230,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeUI: {fileID: 1051018576}
   backPoint: {fileID: 1400866868}
-  mainCamera: {fileID: 963194228}
   attack: {fileID: 485101112}
   secondary: {fileID: 742370316}
   price: {fileID: 920394624}

@@ -7,6 +7,7 @@ public class CameraController : MonoBehaviour
     public float rotationSpeed = 30f;
     public float zoomSpeed = 3f;
     public Camera mainCamera;
+    public bool enableRotation;
 
     [Header("Camera Restrictions")]
     public float minY = 10f;
@@ -48,7 +49,7 @@ public class CameraController : MonoBehaviour
         {
             transform.Translate(Vector3.right * panSpeed * Time.deltaTime, Space.Self);
         }
-        if (Input.GetKey("q"))
+        if (Input.GetKey("q") && enableRotation)
         {
             transform.Rotate(0, -rotationSpeed * Time.deltaTime, 0, Space.Self);
         }
@@ -56,7 +57,7 @@ public class CameraController : MonoBehaviour
         {
             transform.Rotate(0, rotationSpeed * Time.deltaTime, 0, Space.Self);
         }
-        if (Input.GetKey("r"))
+        if (Input.GetKey("r") && enableRotation)
         {
             transform.position = startPosition;
             transform.rotation = startRotation;
@@ -87,6 +88,9 @@ public class CameraController : MonoBehaviour
         rot.x = pos.y * 0.7129f + 22.8705f;
 
         transform.position = pos;
-        mainCamera.transform.eulerAngles = rot;
+        if (enableRotation)
+        {
+            mainCamera.transform.eulerAngles = rot;
+        }
     }
 }
