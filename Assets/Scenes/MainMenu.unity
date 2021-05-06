@@ -6372,8 +6372,8 @@ MonoBehaviour:
   ui: {fileID: 1475836677}
   confirm: {fileID: 280847184}
   exitLevel: {fileID: 2109875802}
-  sceneFader: {fileID: 0}
-  mainMenu: 
+  sceneFader: {fileID: 396396897}
+  mainMenu: MainMenu
 --- !u!114 &509015241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6386,6 +6386,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 030c7f17aa0cf28409c34814a4acca6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneFader: {fileID: 396396897}
+  mainMenu: MainMenu
 --- !u!1001 &525694809
 PrefabInstance:
   m_ObjectHideFlags: 0

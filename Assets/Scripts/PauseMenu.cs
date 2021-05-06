@@ -8,7 +8,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject exitLevel;
 
     public SceneFader sceneFader;
-    public string mainMenu;
+    public string mainMenu = "MainMenu";
 
     void Update()
     {
