@@ -111,7 +111,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canSelectColor: {r: 0.948622, g: 0.9716981, b: 0.23375754, a: 0}
   canNotSelectColor: {r: 1, g: 0.36320752, b: 0.36320752, a: 0}
-  selectedColor: {r: 0.21586865, g: 0.6179199, b: 0.9339623, a: 0}
+  hoverColor: {r: 0.28315237, g: 0.7607823, b: 0.9528302, a: 0}
+  isSelectedColor: {r: 0.0047169924, g: 0.46977684, b: 1, a: 0}
   clearedColor: {r: 0.14881113, g: 0.9622642, b: 0.12255252, a: 0}
-  levelNumber: 1
+  levelNumber: 2
   previousLevel: 1

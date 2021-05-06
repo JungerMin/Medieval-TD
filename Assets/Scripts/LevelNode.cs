@@ -1,23 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
 
 public class LevelNode : MonoBehaviour
 {
     public Color canSelectColor;
     public Color canNotSelectColor;
-    public Color selectedColor;
+    public Color hoverColor;
+    public Color isSelectedColor;
     public Color clearedColor;
 
     public int levelNumber;
 
     public int previousLevel;
 
+    public string levelName;
+
     private bool selectable = false;
+    private bool isSelected = false;
 
     private Renderer rend;
+    private LevelSelectManager levelSelectManager;
 
     void Start()
     {
@@ -39,30 +41,70 @@ public class LevelNode : MonoBehaviour
             rend.material.color = canNotSelectColor;
         }
 
-        
+        levelSelectManager = LevelSelectManager.instance;
     }
 
     private void OnMouseDown()
     {
-        if (selectable)
+        if (EventSystem.current.IsPointerOverGameObject())
         {
-            SceneManager.LoadScene(levelNumber);
+            return;
         }
+
+        if (selectable && !isSelected)
+        {
+            levelSelectManager.SelectLevel(this);
+            return;
+        }
+
+        levelSelectManager.DeselectLevel();
     }
 
     private void OnMouseEnter()
     {
-        if (selectable)
+        if (EventSystem.current.IsPointerOverGameObject())
         {
-            rend.material.color = selectedColor;
+            return;
+        }
+
+        if (selectable && !isSelected)
+        {
+            rend.material.color = hoverColor;
         }
     }
 
     private void OnMouseExit()
     {
-        if (selectable)
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+
+        if (selectable && !isSelected)
         {
             rend.material.color = canSelectColor;
         }
+    }
+
+    public Vector3 GetPosition()
+    {
+        return transform.position;
+    }
+
+    public void Select()
+    {
+        isSelected = true;
+        rend.material.color = isSelectedColor;
+    }
+
+    public void Deselect()
+    {
+        isSelected = false;
+        rend.material.color = canSelectColor;
+    }
+
+    public string GetLevel()
+    {
+        return levelName;
     }
 }

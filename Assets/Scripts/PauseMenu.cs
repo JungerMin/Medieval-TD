@@ -7,6 +7,9 @@ public class PauseMenu : MonoBehaviour
     public GameObject confirm;
     public GameObject exitLevel;
 
+    public SceneFader sceneFader;
+    public string mainMenu;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -45,8 +48,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Yes()
     {
-        // Temporary Restart level
         Time.timeScale = 1f;
-        SceneManager.LoadScene(0);
+        sceneFader.FadeTo(mainMenu);
     }
 }
