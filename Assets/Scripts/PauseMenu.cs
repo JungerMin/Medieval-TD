@@ -48,7 +48,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Yes()
     {
-        Time.timeScale = 1f;
+        Toggle();
         sceneFader.FadeTo(mainMenu);
     }
 }
