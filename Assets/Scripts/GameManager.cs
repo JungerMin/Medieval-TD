@@ -33,6 +33,8 @@ public class GameManager : MonoBehaviour
         GameIsOver = true;
 
         gameOverUI.SetActive(true);
+
+        Time.timeScale = 1f;
     }
 
     public void ToggleSpeed()

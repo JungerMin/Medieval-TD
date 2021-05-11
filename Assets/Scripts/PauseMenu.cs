@@ -9,6 +9,8 @@ public class PauseMenu : MonoBehaviour
     public SceneFader sceneFader;
     public string mainMenu = "MainMenu";
 
+    private float timeScale = 1f;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -23,13 +25,15 @@ public class PauseMenu : MonoBehaviour
 
         if (ui.activeSelf)
         {
+            timeScale = Time.timeScale;
+
             confirm.SetActive(false);
             exitLevel.SetActive(true);
             Time.timeScale = 0f;
         }
         else
         {
-            Time.timeScale = 1f;
+            Time.timeScale = timeScale;
         }
     }
 
@@ -48,6 +52,7 @@ public class PauseMenu : MonoBehaviour
     public void Yes()
     {
         Toggle();
+        Time.timeScale = 1f;
         sceneFader.FadeTo(mainMenu);
     }
 }
