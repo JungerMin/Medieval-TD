@@ -7463,6 +7463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelSelect: LevelSelect
+  upgradePoints: 1
   sceneFader: {fileID: 396396897}
 --- !u!1001 &640968928
 PrefabInstance:

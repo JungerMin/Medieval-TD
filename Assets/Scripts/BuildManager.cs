@@ -27,7 +27,19 @@ public class BuildManager : MonoBehaviour
 
     public bool CanBuild { get { return turretToBuild != null; } }
 
-    public bool HasMoney { get { return playerStatsInstance.GetDP() >= turretToBuild.cost; } }
+    public bool HasMoney 
+    { get
+        { 
+            if (turretToBuild.isUpgraded)
+            {
+                return playerStatsInstance.GetDP() >= turretToBuild.upgradedCost;
+            }
+            else
+            {
+                return playerStatsInstance.GetDP() >= turretToBuild.cost;
+            }
+        } 
+    }
 
     public void SelectNode(Node node)
     {

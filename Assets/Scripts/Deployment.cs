@@ -7,6 +7,10 @@ public class Deployment : MonoBehaviour
     public TurretBlueprint missileLauncher;
     public TurretBlueprint laserTurret;
 
+    private int standardTurretUpgrade;
+    private int missileLauncherUpgrade;
+    private int laserTurretUpgrade;
+
 
     [Header("Turret Cost")]
     public Text standardTurretCost;
@@ -17,12 +21,19 @@ public class Deployment : MonoBehaviour
 
     private void Start()
     {
+        standardTurretUpgrade = PlayerPrefs.GetInt("StandardTurret");
+        missileLauncherUpgrade = PlayerPrefs.GetInt("MissileLauncher");
+        laserTurretUpgrade = PlayerPrefs.GetInt("laserTurret");
+
         buildManager = BuildManager.instance;
 
         standardTurretCost.text = standardTurret.cost.ToString();
         missileLauncherCost.text = missileLauncher.cost.ToString();
         laserTurretCost.text = laserTurret.cost.ToString();
 
+        CheckStandardTurret();
+        CheckMissileLauncher();
+        CheckLaserTurret();
     }
 
     public void SelectStandardTurret()
@@ -40,24 +51,33 @@ public class Deployment : MonoBehaviour
         buildManager.SelectTurretToBuild(laserTurret);
     }
 
-    public void UpgradeStandardTurret()
+    private void CheckStandardTurret()
     {
-        standardTurret.isUpgraded = true;
-        standardTurretCost.text = standardTurret.upgradedCost.ToString();
-        standardTurret.upgradeImage.SetActive(true);
+        if (standardTurretUpgrade == 1)
+        {
+            standardTurret.isUpgraded = true;
+            standardTurretCost.text = standardTurret.upgradedCost.ToString();
+            standardTurret.upgradeImage.SetActive(true);
+        }
     }
 
-    public void UpgradeMissileLauncher()
+    private void CheckMissileLauncher()
     {
-        missileLauncher.isUpgraded = true;
-        missileLauncherCost.text = missileLauncher.upgradedCost.ToString();
-        missileLauncher.upgradeImage.SetActive(true);
+        if (missileLauncherUpgrade == 1)
+        {
+            missileLauncher.isUpgraded = true;
+            missileLauncherCost.text = missileLauncher.upgradedCost.ToString();
+            missileLauncher.upgradeImage.SetActive(true);
+        }
     }
 
-    public void UpgradeLaserTurret()
+    private void CheckLaserTurret()
     {
-        laserTurret.isUpgraded = true;
-        laserTurretCost.text = laserTurret.upgradedCost.ToString();
-        laserTurret.upgradeImage.SetActive(true);
+        if (laserTurretUpgrade == 1)
+        {
+            laserTurret.isUpgraded = true;
+            laserTurretCost.text = laserTurret.upgradedCost.ToString();
+            laserTurret.upgradeImage.SetActive(true);
+        }
     }
 }

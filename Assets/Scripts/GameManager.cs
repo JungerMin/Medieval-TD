@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject gameOverUI;
 
+    private bool toggle = false;
+
     private void Start()
     {
         playerStatsInstance = PlayerStats.instance;
@@ -31,5 +33,19 @@ public class GameManager : MonoBehaviour
         GameIsOver = true;
 
         gameOverUI.SetActive(true);
+    }
+
+    public void ToggleSpeed()
+    {
+        if (!toggle)
+        {
+            Time.timeScale = 2f;
+        }
+        else
+        {
+            Time.timeScale = 1f;
+        }
+
+        toggle = !toggle;
     }
 }

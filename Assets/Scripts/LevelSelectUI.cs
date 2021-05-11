@@ -6,6 +6,7 @@ public class LevelSelectUI : MonoBehaviour
     public GameObject levelSelectUI;
     public Text stageName;
     public SceneFader sceneFader;
+    public GameObject turretUpgradeMenu;
 
     private Transform mainCamera;
     private LevelNode level;
@@ -51,5 +52,10 @@ public class LevelSelectUI : MonoBehaviour
     public void StartLevel()
     {
         sceneFader.FadeTo(level.GetLevel());
+    }
+
+    public void TurretUpgradeMenu()
+    {
+        turretUpgradeMenu.SetActive(true);
     }
 }
