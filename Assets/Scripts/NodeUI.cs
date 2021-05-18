@@ -15,7 +15,7 @@ public class NodeUI : MonoBehaviour
     public Text price;
 
     private Node target;
-    private Turret turret;
+    private Units turret;
     private TurretBlueprint turretBlueprint;
 
     private void Start()
@@ -42,7 +42,7 @@ public class NodeUI : MonoBehaviour
 
         transform.position = target.GetBuildPosition() + dir.normalized * scaling;
 
-        turret = target.turret.GetComponent<Turret>();
+        turret = target.turret.GetComponent<Units>();
         turretBlueprint = target.turretBlueprint;
 
         SetAttack();
@@ -66,26 +66,12 @@ public class NodeUI : MonoBehaviour
 
     public void SetAttack()
     {
-        if (turret.useLaser)
-        {
-            attack.text = "DoT: " + turret.damageOverTime.ToString();
-        }
-        else
-        {
-            attack.text = "Dmg: " + turret.damage.ToString();
-        }
+        attack.text = "Dmg: " + turret.damage.ToString();
     }
 
     public void SetSecondary()
     {
-        if (turret.useLaser)
-        {
-            secondary.text = "Debuff: Slow";
-        }
-        else
-        {
-            secondary.text = "Firerate: " + turret.fireRate.ToString();
-        }
+        secondary.text = "Debuff: " + turret.debuff.name;
     }
 
     public void Sell()

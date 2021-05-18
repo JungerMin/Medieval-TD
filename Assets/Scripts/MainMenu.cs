@@ -10,9 +10,9 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
-        PlayerPrefs.SetInt("StandardTurret", 0);
+        PlayerPrefs.SetInt("Archer", 0);
         PlayerPrefs.SetInt("MissileLauncher", 0);
-        PlayerPrefs.SetInt("LaserTurret", 0);
+        PlayerPrefs.SetInt("Mage", 0);
         PlayerPrefs.SetInt("UpgradePoints", upgradePoints);
     }
 

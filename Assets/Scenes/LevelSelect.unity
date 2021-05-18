@@ -1155,7 +1155,7 @@ GameObject:
   - component: {fileID: 1040627840}
   - component: {fileID: 1040627839}
   m_Layer: 5
-  m_Name: StandardTurret
+  m_Name: Archer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1246,7 +1246,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1144377359}
         m_TargetAssemblyTypeName: TurretUpgradeManager, Assembly-CSharp
-        m_MethodName: UpgradeStandardTurret
+        m_MethodName: UpgradeArcher
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1276,7 +1276,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: faf706f8c7228074daecea7c0f3b4ad6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e02edb1066e2a5d449864482b728a926, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1656,9 +1656,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradePointsText: {fileID: 381020547}
-  standardTurretIcon: {fileID: 1366862716}
+  archerIcon: {fileID: 1366862716}
   missileLauncherIcon: {fileID: 1507044184}
-  laserTurretIcon: {fileID: 201071081}
+  mageIcon: {fileID: 201071081}
   menu: {fileID: 983371351}
 --- !u!1 &1156831213
 GameObject:
@@ -1673,7 +1673,7 @@ GameObject:
   - component: {fileID: 1156831215}
   - component: {fileID: 1156831217}
   m_Layer: 5
-  m_Name: Turrets
+  m_Name: Units
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1691,8 +1691,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1040627838}
-  - {fileID: 2033153467}
   - {fileID: 1234407712}
+  - {fileID: 2033153467}
   m_Father: {fileID: 983371352}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1779,7 +1779,7 @@ GameObject:
   - component: {fileID: 1234407713}
   - component: {fileID: 1234407716}
   m_Layer: 5
-  m_Name: LaserTurret
+  m_Name: Mage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1798,11 +1798,11 @@ RectTransform:
   m_Children:
   - {fileID: 201071082}
   m_Father: {fileID: 1156831214}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1391.5708, y: -177.00296}
+  m_AnchoredPosition: {x: 784.3661, y: -177.00296}
   m_SizeDelta: {x: 354.3228, y: 354.00592}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1234407713
@@ -1851,7 +1851,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1144377359}
         m_TargetAssemblyTypeName: TurretUpgradeManager, Assembly-CSharp
-        m_MethodName: UpgradeLaserTurret
+        m_MethodName: CheckMage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1881,7 +1881,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b9d05e53a663bd04198a014719e1fb08, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 836fc3f5b0dab1b48b381001ee2a963c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2140,7 +2140,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Upgrade
 
-    Turrets'
+    Units'
 --- !u!222 &1514568892
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2745,11 +2745,11 @@ RectTransform:
   m_Children:
   - {fileID: 1507044185}
   m_Father: {fileID: 1156831214}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 784.3661, y: -177.00296}
+  m_AnchoredPosition: {x: 1391.5708, y: -177.00296}
   m_SizeDelta: {x: 354.3228, y: 354.00592}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2033153468
@@ -3014,7 +3014,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Upgrade Turrets
+  m_Text: Upgrade Units
 --- !u!222 &2112008938
 CanvasRenderer:
   m_ObjectHideFlags: 0

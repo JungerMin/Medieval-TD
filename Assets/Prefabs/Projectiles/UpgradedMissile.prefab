@@ -127,3 +127,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   impactEffect: {fileID: 6363204169010438772, guid: fc2d1e182cb7a1b41b8533398b19ec52, type: 3}
+  slowDebuff: {fileID: 7317659347512560645, guid: fb08c949796263e43bfbb21d5ba07a35, type: 3}

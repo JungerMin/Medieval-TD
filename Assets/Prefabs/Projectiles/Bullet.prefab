@@ -95,7 +95,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6f4a24fa8433148b3fb6c5aa004e20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 70
-  explosionRadius: 0
-  damage: 20
   impactEffect: {fileID: 6363204169010438772, guid: fe027d0dd2e452947bbff0fb578b097b, type: 3}
+  slowDebuff: {fileID: 7317659347512560645, guid: fb08c949796263e43bfbb21d5ba07a35, type: 3}

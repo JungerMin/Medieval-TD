@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7317659347512560667}
   - component: {fileID: 7317659347512560666}
   m_Layer: 0
-  m_Name: DebuffSlow
+  m_Name: Slow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c39f2fcec29b0094982fc2ea8088822f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 1
+  duration: 2
   startTime: 0
   repeatTime: 0
   target: {fileID: 0}

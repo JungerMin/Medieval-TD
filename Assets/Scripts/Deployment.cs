@@ -3,42 +3,42 @@ using UnityEngine.UI;
 
 public class Deployment : MonoBehaviour
 {
-    public TurretBlueprint standardTurret;
+    public TurretBlueprint archer;
     public TurretBlueprint missileLauncher;
-    public TurretBlueprint laserTurret;
+    public TurretBlueprint mage;
 
-    private int standardTurretUpgrade;
+    private int archerUpgrade;
     private int missileLauncherUpgrade;
-    private int laserTurretUpgrade;
+    private int mageUpgrade;
 
 
     [Header("Turret Cost")]
-    public Text standardTurretCost;
+    public Text archerCost;
     public Text missileLauncherCost;
-    public Text laserTurretCost;
+    public Text mageCost;
 
     BuildManager buildManager;
 
     private void Start()
     {
-        standardTurretUpgrade = PlayerPrefs.GetInt("StandardTurret");
+        archerUpgrade = PlayerPrefs.GetInt("Archer");
         missileLauncherUpgrade = PlayerPrefs.GetInt("MissileLauncher");
-        laserTurretUpgrade = PlayerPrefs.GetInt("laserTurret");
+        mageUpgrade = PlayerPrefs.GetInt("Mage");
 
         buildManager = BuildManager.instance;
 
-        standardTurretCost.text = standardTurret.cost.ToString();
+        archerCost.text = archer.cost.ToString();
         missileLauncherCost.text = missileLauncher.cost.ToString();
-        laserTurretCost.text = laserTurret.cost.ToString();
+        mageCost.text = mage.cost.ToString();
 
-        CheckStandardTurret();
+        CheckArcher();
         CheckMissileLauncher();
-        CheckLaserTurret();
+        CheckMage();
     }
 
-    public void SelectStandardTurret()
+    public void SelectArcher()
     {
-        buildManager.SelectTurretToBuild(standardTurret);
+        buildManager.SelectTurretToBuild(archer);
     }
 
     public void SelectMissileLauncher()
@@ -46,18 +46,18 @@ public class Deployment : MonoBehaviour
         buildManager.SelectTurretToBuild(missileLauncher);
     }
 
-    public void SelectLaserTurret()
+    public void SelectMage()
     {
-        buildManager.SelectTurretToBuild(laserTurret);
+        buildManager.SelectTurretToBuild(mage);
     }
 
-    private void CheckStandardTurret()
+    private void CheckArcher()
     {
-        if (standardTurretUpgrade == 1)
+        if (archerUpgrade == 1)
         {
-            standardTurret.isUpgraded = true;
-            standardTurretCost.text = standardTurret.upgradedCost.ToString();
-            standardTurret.upgradeImage.SetActive(true);
+            archer.isUpgraded = true;
+            archerCost.text = archer.upgradedCost.ToString();
+            archer.upgradeImage.SetActive(true);
         }
     }
 
@@ -71,13 +71,13 @@ public class Deployment : MonoBehaviour
         }
     }
 
-    private void CheckLaserTurret()
+    private void CheckMage()
     {
-        if (laserTurretUpgrade == 1)
+        if (mageUpgrade == 1)
         {
-            laserTurret.isUpgraded = true;
-            laserTurretCost.text = laserTurret.upgradedCost.ToString();
-            laserTurret.upgradeImage.SetActive(true);
+            mage.isUpgraded = true;
+            mageCost.text = mage.upgradedCost.ToString();
+            mage.upgradeImage.SetActive(true);
         }
     }
 }

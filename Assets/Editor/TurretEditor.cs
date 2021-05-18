@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(Turret))]
+[CustomEditor(typeof(Units))]
 [CanEditMultipleObjects]
 public class TurretEditor : Editor
 {
@@ -12,7 +12,7 @@ public class TurretEditor : Editor
 
     public override void OnInspectorGUI()
     {
-        var turretEditor = target as Turret;
+        var turretEditor = target as Units;
 
         turretEditor.useLaser = GUILayout.Toggle(turretEditor.useLaser, "Is Laser Turret");
         GUILayout.Space(10f);
@@ -22,7 +22,7 @@ public class TurretEditor : Editor
         {
             turretEditor.range = EditorGUILayout.Slider("Range", turretEditor.range, 0f, 100f);
             turretEditor.damageOverTime = EditorGUILayout.IntSlider("DoT", turretEditor.damageOverTime, 0, 100);
-            turretEditor.slowPrefab = (GameObject)EditorGUILayout.ObjectField("Debuff", turretEditor.slowPrefab, typeof(GameObject), true);
+            turretEditor.debuff = (GameObject)EditorGUILayout.ObjectField("Debuff", turretEditor.debuff, typeof(GameObject), true);
 
             showLaserVFX = EditorGUILayout.BeginFoldoutHeaderGroup(showLaserVFX, "Laser VFX");
             if (showLaserVFX)
@@ -49,7 +49,7 @@ public class TurretEditor : Editor
             turretEditor.enemyTag = EditorGUILayout.TextField("Enemy Tag", turretEditor.enemyTag);
             turretEditor.partToRotate = (Transform)EditorGUILayout.ObjectField("Part to rotate", turretEditor.partToRotate, typeof(Transform), true);
             turretEditor.rotationSpeed = EditorGUILayout.Slider("Turret rotation speed", turretEditor.rotationSpeed, 0, 100);
-            turretEditor.bulletPrefab = (GameObject)EditorGUILayout.ObjectField("Bullet Prefab", turretEditor.bulletPrefab, typeof(GameObject), true);
+            turretEditor.projectilePrefab = (GameObject)EditorGUILayout.ObjectField("Bullet Prefab", turretEditor.projectilePrefab, typeof(GameObject), true);
             turretEditor.firePoint = (Transform)EditorGUILayout.ObjectField("Firepoint", turretEditor.firePoint, typeof(Transform), true);
         }
     }

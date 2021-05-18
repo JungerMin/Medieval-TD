@@ -7,17 +7,17 @@ public class TurretUpgradeManager : MonoBehaviour
     private int upgradePoints;
 
     public Text upgradePointsText;
-    public GameObject standardTurretIcon;
+    public GameObject archerIcon;
     public GameObject missileLauncherIcon;
-    public GameObject laserTurretIcon;
+    public GameObject mageIcon;
     public GameObject menu;
 
     private void Start()
     {
         upgradePoints = PlayerPrefs.GetInt("UpgradePoints");
-        CheckStandardTurret();
+        CheckArcher();
         CheckMissileLauncher();
-        CheckLaserTurret();
+        CheckMage();
     }
 
     private void Update()
@@ -25,22 +25,22 @@ public class TurretUpgradeManager : MonoBehaviour
         upgradePointsText.text = "Upgrade Points: " + upgradePoints;
     }
 
-    public void UpgradeStandardTurret()
+    public void UpgradeArcher()
     {
         if (upgradePoints > 0)
         {
-            standardTurretIcon.SetActive(true);
-            PlayerPrefs.SetInt("StandardTurret", 1);
+            archerIcon.SetActive(true);
+            PlayerPrefs.SetInt("Archer", 1);
             PlayerPrefs.SetInt("UpgradePoints", upgradePoints - 1);
             upgradePoints--;
         }
     }
 
-    public void CheckStandardTurret()
+    public void CheckArcher()
     {
-        if(PlayerPrefs.GetInt("StandardTurret") == 1)
+        if(PlayerPrefs.GetInt("Archer") == 1)
         {
-            standardTurretIcon.SetActive(true);
+            archerIcon.SetActive(true);
         }
     }
 
@@ -63,22 +63,22 @@ public class TurretUpgradeManager : MonoBehaviour
         }
     }
 
-    public void UpgradeLaserTurret()
+    public void UpgradeMage()
     {
         if (upgradePoints > 0)
         {
-            laserTurretIcon.SetActive(true);
-            PlayerPrefs.SetInt("LaserTurret", 1);
+            mageIcon.SetActive(true);
+            PlayerPrefs.SetInt("Mage", 1);
             PlayerPrefs.SetInt("UpgradePoints", upgradePoints - 1);
             upgradePoints--;
         }
     }
 
-    public void CheckLaserTurret()
+    public void CheckMage()
     {
-        if (PlayerPrefs.GetInt("LaserTurret") == 1)
+        if (PlayerPrefs.GetInt("Mage") == 1)
         {
-            laserTurretIcon.SetActive(true);
+            mageIcon.SetActive(true);
         }
     }
 
