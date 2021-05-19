@@ -10,7 +10,7 @@ public class WaveSpawner : MonoBehaviour
     public class Wave
     {
         public string name;
-        public Transform enemyPrefab;
+        public GameObject enemyPrefab;
         public int count;
         public float rate;
         public float waveCountdown = 2f;
@@ -122,9 +122,11 @@ public class WaveSpawner : MonoBehaviour
         yield break;
     }
 
-    private void SpawnEnemy(Transform _enemy)
+    private void SpawnEnemy(GameObject _enemy)
     {
-        Instantiate(_enemy, spawnPoint.position, spawnPoint.rotation);
+        GameObject e = Instantiate(_enemy, spawnPoint.position, spawnPoint.rotation);
+        e.SetActive(true);
+
         Debug.Log("Spawning Enemy: " + _enemy.name);
     }
 }

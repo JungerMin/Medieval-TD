@@ -9,21 +9,26 @@ public class EnemyMovement : MonoBehaviour
     private Enemy enemy;
 
     private Transform target;
+    private Transform[] waypoints;
     private int waypointIndex = 0;
     private float distanceTravelled;
     private Vector3 lastPosition;
     private float distanceToGoal = 0;
+
+    public GameObject waypointsObject;
 
     private void Start()
     {
         playerStatsInstance = PlayerStats.instance;
         enemy = GetComponent<Enemy>();
 
-        target = Waypoints.waypoints[0];
+        waypoints = waypointsObject.GetComponent<Waypoints>().waypoints;
 
-        for (int i = 0; i < Waypoints.waypoints.Length - 2; i++)
+        target = waypoints[0];
+
+        for (int i = 0; i < waypoints.Length - 2; i++)
         {
-            distanceToGoal += Vector3.Distance(Waypoints.waypoints[i + 1].position, Waypoints.waypoints[i].position);
+            distanceToGoal += Vector3.Distance(waypoints[i + 1].position, waypoints[i].position);
         }
 
         distanceTravelled = 0f;
@@ -32,30 +37,38 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
-        Vector3 dir = target.position - transform.position;
-        transform.Translate(dir.normalized * enemy.currentSpeed * Time.deltaTime, Space.World);
 
-        if (Vector3.Distance(transform.position, target.position) <= 0.2f)
+        if (target != null)
         {
-            GetNextWayPoint();
+            Vector3 dir = target.position - transform.position;
+            transform.Translate(dir.normalized * enemy.currentSpeed * Time.deltaTime, Space.World);
+
+            if (Vector3.Distance(transform.position, target.position) <= 0.2f)
+            {
+                GetNextWayPoint();
+            }
+
+            distanceTravelled = Vector3.Distance(transform.position, lastPosition);
+            lastPosition = transform.position;
+
+            distanceToGoal -= distanceTravelled;
         }
-
-        distanceTravelled = Vector3.Distance(transform.position, lastPosition);
-        lastPosition = transform.position;
-
-        distanceToGoal -= distanceTravelled;
+        else
+        {
+            
+        }
     }
 
     private void GetNextWayPoint()
     {
-        if (waypointIndex >= Waypoints.waypoints.Length - 1)
+        if (waypointIndex >= waypoints.Length - 1)
         {
             EndPath();
             return;
         }
 
         waypointIndex++;
-        target = Waypoints.waypoints[waypointIndex];
+        target = waypoints[waypointIndex];
     }
 
     private void EndPath()
