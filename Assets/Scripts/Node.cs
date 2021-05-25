@@ -23,6 +23,8 @@ public class Node : MonoBehaviour
     private BuildManager buildManager;
     private PlayerStats playerStatsInstance;
 
+    private string type;
+
     private void Start()
     {
         rend = GetComponent<Renderer>();
@@ -30,6 +32,8 @@ public class Node : MonoBehaviour
 
         buildManager = BuildManager.instance;
         playerStatsInstance = PlayerStats.instance;
+
+        type = this.tag;
     }
 
     private void OnMouseDown()
@@ -47,7 +51,7 @@ public class Node : MonoBehaviour
             return;
         }
 
-        if (!buildManager.CanBuild)
+        if (!buildManager.CanBuild(type))
         {
             if (!buildManager.HasTurret())
             {
@@ -55,7 +59,7 @@ public class Node : MonoBehaviour
             }
             return;
         }
-        else if (buildManager.CanBuild)
+        else if (buildManager.CanBuild(type))
         {
             BuildTurret(buildManager.GetTurretToBuild());
             rend.material.color = startColour;
@@ -75,18 +79,21 @@ public class Node : MonoBehaviour
             return;
         }
 
-        if (!buildManager.CanBuild)
+        if (buildManager.CanBuild(type))
         {
+            if (buildManager.HasMoney)
+            {
+                rend.material.color = hoverColour;
+            }
+            else
+            {
+                rend.material.color = notEnoughMoneyColour;
+            }
+
             return;
         }
 
-        if (buildManager.HasMoney)
-        {
-            rend.material.color = hoverColour;
-        } else
-        {
-            rend.material.color = notEnoughMoneyColour;
-        }
+        return;
     }
 
     private void OnMouseExit()
@@ -122,8 +129,6 @@ public class Node : MonoBehaviour
 
         GameObject effect = (GameObject)Instantiate(blueprint.buildEffect, GetBuildPosition(), Quaternion.identity);
         Destroy(effect, 5f);
-
-        Debug.Log("Turret build!");
 
         buildManager.DeselectTurretToBuild();
     }

@@ -1556,7 +1556,7 @@ GameObject:
   - component: {fileID: 1144377355}
   - component: {fileID: 1144377359}
   m_Layer: 5
-  m_Name: TurretUpgrade
+  m_Name: UnitUpgrade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1657,8 +1657,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradePointsText: {fileID: 381020547}
   archerIcon: {fileID: 1366862716}
-  missileLauncherIcon: {fileID: 1507044184}
   mageIcon: {fileID: 201071081}
+  defenderIcon: {fileID: 1507044184}
   menu: {fileID: 983371351}
 --- !u!1 &1156831213
 GameObject:
@@ -2161,12 +2161,32 @@ PrefabInstance:
       value: Stage 2-1
       objectReference: {fileID: 0}
     - target: {fileID: 6519025034706371497, guid: 46c9a0880f276ac4b946326c1c489e10, type: 3}
+      propertyPath: thisStage
+      value: Stage 2-1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519025034706371497, guid: 46c9a0880f276ac4b946326c1c489e10, type: 3}
       propertyPath: levelNumber
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6519025034706371497, guid: 46c9a0880f276ac4b946326c1c489e10, type: 3}
       propertyPath: previousLevel
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519025034706371497, guid: 46c9a0880f276ac4b946326c1c489e10, type: 3}
+      propertyPath: previousStage
+      value: Stage 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519025034706371497, guid: 46c9a0880f276ac4b946326c1c489e10, type: 3}
+      propertyPath: clearedStage.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519025034706371497, guid: 46c9a0880f276ac4b946326c1c489e10, type: 3}
+      propertyPath: clearedStage.Array.data[0]
+      value: Stage 2-1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519025034706371497, guid: 46c9a0880f276ac4b946326c1c489e10, type: 3}
+      propertyPath: clearedStage.Array.data[1]
+      value: Stage 3-1
       objectReference: {fileID: 0}
     - target: {fileID: 9070376207701167828, guid: 46c9a0880f276ac4b946326c1c489e10, type: 3}
       propertyPath: m_RootOrder
@@ -2214,7 +2234,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9070376207701167832, guid: 46c9a0880f276ac4b946326c1c489e10, type: 3}
       propertyPath: m_Name
-      value: Level (3)
+      value: Stage 2-1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46c9a0880f276ac4b946326c1c489e10, type: 3}
@@ -2553,12 +2573,32 @@ PrefabInstance:
       value: Stage 2-2
       objectReference: {fileID: 0}
     - target: {fileID: 6519025034706371497, guid: 46c9a0880f276ac4b946326c1c489e10, type: 3}
+      propertyPath: thisStage
+      value: Stage 2-2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519025034706371497, guid: 46c9a0880f276ac4b946326c1c489e10, type: 3}
       propertyPath: levelNumber
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6519025034706371497, guid: 46c9a0880f276ac4b946326c1c489e10, type: 3}
       propertyPath: previousLevel
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519025034706371497, guid: 46c9a0880f276ac4b946326c1c489e10, type: 3}
+      propertyPath: previousStage
+      value: Stage 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519025034706371497, guid: 46c9a0880f276ac4b946326c1c489e10, type: 3}
+      propertyPath: clearedStage.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519025034706371497, guid: 46c9a0880f276ac4b946326c1c489e10, type: 3}
+      propertyPath: clearedStage.Array.data[0]
+      value: Stage 2-2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519025034706371497, guid: 46c9a0880f276ac4b946326c1c489e10, type: 3}
+      propertyPath: clearedStage.Array.data[1]
+      value: Stage 3-2
       objectReference: {fileID: 0}
     - target: {fileID: 9070376207701167828, guid: 46c9a0880f276ac4b946326c1c489e10, type: 3}
       propertyPath: m_RootOrder
@@ -2606,7 +2646,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9070376207701167832, guid: 46c9a0880f276ac4b946326c1c489e10, type: 3}
       propertyPath: m_Name
-      value: Level (4)
+      value: Stage 2-2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46c9a0880f276ac4b946326c1c489e10, type: 3}
@@ -2726,7 +2766,7 @@ GameObject:
   - component: {fileID: 2033153468}
   - component: {fileID: 2033153471}
   m_Layer: 5
-  m_Name: MissileLauncher
+  m_Name: Defender
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2797,8 +2837,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1144377359}
-        m_TargetAssemblyTypeName: TurretUpgradeManager, Assembly-CSharp
-        m_MethodName: UpgradeMissileLauncher
+        m_TargetAssemblyTypeName: UnitUpgradeManager, Assembly-CSharp
+        m_MethodName: UpgradeDefender
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2828,7 +2868,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: dd64a2f5f7380234d9ebb48eb8b289bd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: af8074aee8c278e42955a9cec54c9457, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2915,7 +2955,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.08018869, b: 0.08018869, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3102,6 +3142,34 @@ PrefabInstance:
       propertyPath: levelName
       value: Stage 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6519025034706371497, guid: 46c9a0880f276ac4b946326c1c489e10, type: 3}
+      propertyPath: thisStage
+      value: Stage 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519025034706371497, guid: 46c9a0880f276ac4b946326c1c489e10, type: 3}
+      propertyPath: previousStage
+      value: Stage 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519025034706371497, guid: 46c9a0880f276ac4b946326c1c489e10, type: 3}
+      propertyPath: clearedStage.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519025034706371497, guid: 46c9a0880f276ac4b946326c1c489e10, type: 3}
+      propertyPath: clearedStage.Array.data[0]
+      value: Stage 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519025034706371497, guid: 46c9a0880f276ac4b946326c1c489e10, type: 3}
+      propertyPath: clearedStage.Array.data[1]
+      value: Stage 2-1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519025034706371497, guid: 46c9a0880f276ac4b946326c1c489e10, type: 3}
+      propertyPath: clearedStage.Array.data[2]
+      value: Stage 2-2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519025034706371497, guid: 46c9a0880f276ac4b946326c1c489e10, type: 3}
+      propertyPath: clearedStage.Array.data[3]
+      value: Stage 3-1
+      objectReference: {fileID: 0}
     - target: {fileID: 9070376207701167828, guid: 46c9a0880f276ac4b946326c1c489e10, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -3148,7 +3216,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9070376207701167832, guid: 46c9a0880f276ac4b946326c1c489e10, type: 3}
       propertyPath: m_Name
-      value: Level
+      value: Stage 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46c9a0880f276ac4b946326c1c489e10, type: 3}

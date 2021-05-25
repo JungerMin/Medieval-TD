@@ -15,6 +15,8 @@ public class EnemyMovement : MonoBehaviour
     private Vector3 lastPosition;
     private float distanceToGoal = 0;
 
+    private bool blocked = false;
+
     public GameObject waypointsObject;
 
     private void Start()
@@ -37,8 +39,13 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
+        if (blocked)
+        {
+            return;
+        }
 
-        if (target != null)
+
+        if (target != null && !blocked)
         {
             Vector3 dir = target.position - transform.position;
             transform.Translate(dir.normalized * enemy.currentSpeed * Time.deltaTime, Space.World);
@@ -52,10 +59,6 @@ public class EnemyMovement : MonoBehaviour
             lastPosition = transform.position;
 
             distanceToGoal -= distanceTravelled;
-        }
-        else
-        {
-            
         }
     }
 
@@ -74,11 +77,22 @@ public class EnemyMovement : MonoBehaviour
     private void EndPath()
     {
         playerStatsInstance.ReduceLives();
+        WaveSpawner.EnemiesAlive--;
         Destroy(gameObject);
     }
 
     public float GetDistanceToGoal()
     {
         return distanceToGoal;
+    }
+
+    public void Blocked()
+    {
+        blocked = true;
+    }
+
+    public void NotBlocked()
+    {
+        blocked = false;
     }
 }

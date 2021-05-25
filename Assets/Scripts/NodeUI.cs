@@ -15,7 +15,7 @@ public class NodeUI : MonoBehaviour
     public Text price;
 
     private Node target;
-    private Units turret;
+    private Ranged turret;
     private TurretBlueprint turretBlueprint;
 
     private void Start()
@@ -42,7 +42,7 @@ public class NodeUI : MonoBehaviour
 
         transform.position = target.GetBuildPosition() + dir.normalized * scaling;
 
-        turret = target.turret.GetComponent<Units>();
+        turret = target.turret.GetComponent<Ranged>();
         turretBlueprint = target.turretBlueprint;
 
         SetAttack();

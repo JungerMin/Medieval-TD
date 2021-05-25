@@ -5,8 +5,15 @@ public class BuildManager : MonoBehaviour
     public static BuildManager instance;
     public NodeUI nodeUI;
 
+    public static string ranged = "Ranged";
+    public static string melee = "Melee";
+    public static string meleeTile = "MeleeTile";
+    public static string rangedTile = "RangedTile";
+
     private PlayerStats playerStatsInstance;
     private Node selectedNode;
+
+    private string type;
 
     private void Awake()
     {
@@ -25,7 +32,17 @@ public class BuildManager : MonoBehaviour
 
     private TurretBlueprint turretToBuild;
 
-    public bool CanBuild { get { return turretToBuild != null; } }
+    public bool CanBuild (string _type){
+        if (_type == rangedTile && type == ranged)
+        {
+            return true;
+        }
+        else if (_type == meleeTile && type == melee)
+        {
+            return true;
+        }
+        return false;
+    }
 
     public bool HasMoney 
     { get
@@ -73,6 +90,7 @@ public class BuildManager : MonoBehaviour
     public void SelectTurretToBuild (TurretBlueprint turret)
     {
         turretToBuild = turret;
+        type = turretToBuild.turretPrefab.tag;
         DeselectNode();
     }
 
@@ -84,6 +102,7 @@ public class BuildManager : MonoBehaviour
     public void DeselectTurretToBuild()
     {
         turretToBuild = null;
+        type = null;
     }
 
     public bool HasTurret()

@@ -4,8 +4,6 @@ using System.Collections;
 
 public class WaveSpawner : MonoBehaviour
 {
-    public enum SpawnState { SPAWNING, WAITING, COUNTING };
-
     [System.Serializable]
     public class Wave
     {
@@ -16,52 +14,50 @@ public class WaveSpawner : MonoBehaviour
         public float waveCountdown = 2f;
     }
 
+    public string enemyTag;
+
     public Wave[] waves;
+    private int totalWaves;
     private int nextWave = 0;
+
+    public static int EnemiesAlive = 0;
 
     public Transform spawnPoint;
 
-    public float waveCountdown;
-    private float searchCountdown = 1f;
+    private float waveCountdown;
+    private bool currentlySpawning = false;
 
-    public Text waveCountdownText;
-
-    private SpawnState state = SpawnState.COUNTING;
 
     private void Start()
     {
         waveCountdown = waves[0].waveCountdown;
+        totalWaves = waves.Length;
     }
 
     private void Update()
     {
-        if (GameManager.GameIsOver)
+        if (nextWave == totalWaves)
         {
-            this.enabled = false;
+            CheckAllEnemiesDefeated();
         }
+        else
+        {
+            NextWave();
+        } 
+    }
 
-        if (state == SpawnState.WAITING)
-        {   
-            //Check if all enemies of one wave are dead
-            if (!EnemyIsAlive())
+    private void NextWave()
+    {
+        if (waveCountdown <= 0f)
+        {
+            if (!currentlySpawning && nextWave < totalWaves)
             {
-                WaveCompleted();
+                currentlySpawning = true;
+                StartCoroutine(SpawnWave(waves[nextWave]));
             }
             else
             {
-                /*  WaveCompleted() for don't wait till all enemies dead
-                 *  return for wait till all enemies dead
-                 */
-                WaveCompleted();
-            }
-        }
-
-        //Spawn new wave if countdown reaches 0
-        if (waveCountdown <= 0f)
-        {
-            if (state != SpawnState.SPAWNING)
-            {
-                StartCoroutine(SpawnWave(waves[nextWave]));
+                return;
             }
         }
         else
@@ -71,53 +67,34 @@ public class WaveSpawner : MonoBehaviour
         }
     }
 
-    private void WaveCompleted()
+    private void CheckAllEnemiesDefeated()
     {
-        Debug.Log("Wave Completed!");
-
-        state = SpawnState.COUNTING;
-
-        if(nextWave + 1 > waves.Length - 1)
+        if (EnemiesAlive == 0)
         {
-            nextWave = 0;
-            Debug.Log("ALL WAVE COMPLETE! Looping...");
+            GameManager.GameIsOver = true;
         }
         else
         {
-            nextWave++;
+            return;
         }
-
-        waveCountdown = waves[nextWave].waveCountdown;
-    }
-
-    private bool EnemyIsAlive()
-    {
-        searchCountdown -= Time.deltaTime;
-        if(searchCountdown <= 0f)
-        {
-            searchCountdown = 1f;
-            if(GameObject.FindGameObjectWithTag("Enemy") == null)
-            {
-                return false;
-            }
-        }
-        return true;
     }
 
     private IEnumerator SpawnWave(Wave _wave)
     {
-        Debug.Log("Spawning Wave");
-        state = SpawnState.SPAWNING;
-
         for(int i = 0; i < _wave.count; i++)
         {
             SpawnEnemy(_wave.enemyPrefab);
-            yield return new WaitForSeconds(1f/_wave.rate);
+            yield return new WaitForSeconds(1f / _wave.rate);
         }
 
-        state = SpawnState.WAITING;
+        nextWave++;
 
-        Debug.Log("Wave Spawned!");
+        if (nextWave < totalWaves)
+        {
+            waveCountdown = waves[nextWave].waveCountdown;
+        }
+
+        currentlySpawning = false;
 
         yield break;
     }
@@ -126,7 +103,6 @@ public class WaveSpawner : MonoBehaviour
     {
         GameObject e = Instantiate(_enemy, spawnPoint.position, spawnPoint.rotation);
         e.SetActive(true);
-
-        Debug.Log("Spawning Enemy: " + _enemy.name);
+        EnemiesAlive++;
     }
 }

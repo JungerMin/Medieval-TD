@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - MeleeTile
+  - RangedTile
+  - Ranged
+  - Melee
   layers:
   - Default
   - TransparentFX

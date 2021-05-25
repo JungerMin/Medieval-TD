@@ -46,7 +46,7 @@ public class LevelSelectUI : MonoBehaviour
 
     public void SetLevelName()
     {
-        stageName.text = level.levelName;
+        stageName.text = level.thisStage;
     }
 
     public void StartLevel()

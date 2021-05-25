@@ -7,68 +7,31 @@ public class Units : MonoBehaviour
 
     [Header("Unit Stats")]
 
-    public float range = 15f;
-    public float fireRate = 1f;
+    public float range = 2f;
+    public float attackSpeed = 1f;
     protected float fireCountdown = 0f;
-    public GameObject debuff;
-
-    [Header("Projectile Stats")]
-    public int damage = 20;
-    public float projectileSpeed = 20f;
-    public float explosionRadius = 0f;
+    public float rotationSpeed = 10f;
 
     [Header("Unity Setup Fields")]
     public string enemyTag = "Enemy";
-
+    public string debuffName;
+    public GameObject debuff;
     public Transform partToRotate;
-    public float rotationSpeed = 10f;
-
-    public GameObject projectilePrefab;
-    public Transform firePoint;
-
-    [Header("Use Laser")]
-    public bool useLaser = false;
-    public int damageOverTime = 10;
-
-    [Header("Laser VFX")]
-    public LineRenderer lineRenderer;
-    public ParticleSystem impactEffect;
-    public Light impactLight;
-
-    private void Start()
+    protected Animator animator;
+    protected void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.2f);
-        debuff.name = "None";
+        animator = GetComponent<Animator>();
+        debuff.name = debuffName;
     }
 
-    private void Update()
+    protected void Attack()
     {
-        if (target == null)
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Attack"))
         {
-            if (useLaser)
-            {
-                if (lineRenderer.enabled)
-                {
-                    lineRenderer.enabled = false;
-                    impactEffect.Stop();
-                    impactLight.enabled = false;
-                }
-            }
-            
-            return;
+            animator.speed = attackSpeed;
+            animator.Play("Base Layer.Attack", 0, 0f);
         }
-
-        LockOnTarget();
-
-        if (useLaser)
-        {
-            Laser();
-        } else
-        {
-            Projectile();
-        }
-
-        fireCountdown -= Time.deltaTime;
     }
 
     protected void UpdateTarget()
@@ -110,56 +73,7 @@ public class Units : MonoBehaviour
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f); // set rotation of turret
     }
 
-    private void Laser()
-    {
-        targetEnemy.TakeDamage(damageOverTime * Time.deltaTime);
-        targetEnemy.DebuffSlow(debuff);
-
-        if (!lineRenderer.enabled)
-        {
-            lineRenderer.enabled = true;
-            impactEffect.Play();
-            impactLight.enabled = true;
-        }
-
-        lineRenderer.SetPosition(0, firePoint.position);
-        lineRenderer.SetPosition(1, target.transform.position);
-
-        Vector3 dir = firePoint.position - target.transform.position;
-        impactEffect.transform.rotation = Quaternion.LookRotation(dir);
-        impactEffect.transform.position = target.transform.position + dir.normalized;
-    }
-
-    private void Projectile()
-    {
-        if (fireCountdown <= 0)
-        {
-            Shoot();
-            fireCountdown = 1f / fireRate;
-        }
-    }
-
-    private void Shoot()
-    {
-        GameObject bulletGameObject = (GameObject) Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
-        Projectile bullet = bulletGameObject.GetComponent<Projectile>();
-
-        SetBullet(bullet);
-
-        if (bullet != null)
-        {
-            bullet.Seek(target.transform);
-        }
-    }
-
-    private void SetBullet(Projectile _bullet)
-    {
-        _bullet.SetDamage(damage);
-        _bullet.SetProjectileSpeed(projectileSpeed);
-        _bullet.SetExplosionRadius(explosionRadius);
-    }
-
-    private void OnDrawGizmosSelected()
+    protected void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, range);

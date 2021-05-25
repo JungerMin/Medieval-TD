@@ -4,17 +4,17 @@ using UnityEngine.UI;
 public class Deployment : MonoBehaviour
 {
     public TurretBlueprint archer;
-    public TurretBlueprint missileLauncher;
+    public TurretBlueprint defender;
     public TurretBlueprint mage;
 
     private int archerUpgrade;
-    private int missileLauncherUpgrade;
+    private int defenderUpgrade;
     private int mageUpgrade;
 
 
     [Header("Turret Cost")]
     public Text archerCost;
-    public Text missileLauncherCost;
+    public Text defenderCost;
     public Text mageCost;
 
     BuildManager buildManager;
@@ -22,17 +22,17 @@ public class Deployment : MonoBehaviour
     private void Start()
     {
         archerUpgrade = PlayerPrefs.GetInt("Archer");
-        missileLauncherUpgrade = PlayerPrefs.GetInt("MissileLauncher");
+        defenderUpgrade = PlayerPrefs.GetInt("Defender");
         mageUpgrade = PlayerPrefs.GetInt("Mage");
 
         buildManager = BuildManager.instance;
 
         archerCost.text = archer.cost.ToString();
-        missileLauncherCost.text = missileLauncher.cost.ToString();
+        defenderCost.text = defender.cost.ToString();
         mageCost.text = mage.cost.ToString();
 
         CheckArcher();
-        CheckMissileLauncher();
+        CheckDefender();
         CheckMage();
     }
 
@@ -41,9 +41,9 @@ public class Deployment : MonoBehaviour
         buildManager.SelectTurretToBuild(archer);
     }
 
-    public void SelectMissileLauncher()
+    public void SelectDefender()
     {
-        buildManager.SelectTurretToBuild(missileLauncher);
+        buildManager.SelectTurretToBuild(defender);
     }
 
     public void SelectMage()
@@ -61,13 +61,13 @@ public class Deployment : MonoBehaviour
         }
     }
 
-    private void CheckMissileLauncher()
+    private void CheckDefender()
     {
-        if (missileLauncherUpgrade == 1)
+        if (defenderUpgrade == 1)
         {
-            missileLauncher.isUpgraded = true;
-            missileLauncherCost.text = missileLauncher.upgradedCost.ToString();
-            missileLauncher.upgradeImage.SetActive(true);
+            defender.isUpgraded = true;
+            defenderCost.text = defender.upgradedCost.ToString();
+            defender.upgradeImage.SetActive(true);
         }
     }
 

@@ -3,20 +3,20 @@ using UnityEngine.EventSystems;
 
 public class LevelNode : MonoBehaviour
 {
+    public string[] clearedStage;
+
+    public string thisStage;
+    public string previousStage;
+
     public Color canSelectColor;
     public Color canNotSelectColor;
     public Color hoverColor;
     public Color isSelectedColor;
     public Color clearedColor;
 
-    public int levelNumber;
-
-    public int previousLevel;
-
-    public string levelName;
-
     private bool selectable = false;
     private bool isSelected = false;
+    private bool isCleared = false;
 
     private Renderer rend;
     private LevelSelectManager levelSelectManager;
@@ -25,20 +25,28 @@ public class LevelNode : MonoBehaviour
     {
         rend = GetComponent<Renderer>();
 
-        int levelReached = PlayerPrefs.GetInt("levelReached", 1);
+        string clearedStage = PlayerPrefs.GetString("ClearedStage");
 
-        if (levelReached == previousLevel)
+        foreach (string stage in this.clearedStage)
         {
-            selectable = true;
-            rend.material.color = canSelectColor;
+            if (stage == clearedStage)
+            {
+                rend.material.color = clearedColor;
+                isCleared = true;
+            }
         }
-        else if (levelReached >= levelNumber)
+
+        if (!isCleared)
         {
-            rend.material.color = clearedColor;
-        }
-        else
-        {
-            rend.material.color = canNotSelectColor;
+            if (clearedStage == previousStage)
+            {
+                selectable = true;
+                rend.material.color = canSelectColor;
+            }
+            else
+            {
+                rend.material.color = canNotSelectColor;
+            }
         }
 
         levelSelectManager = LevelSelectManager.instance;
@@ -105,6 +113,7 @@ public class LevelNode : MonoBehaviour
 
     public string GetLevel()
     {
-        return levelName;
+        return thisStage;
     }
 }
+

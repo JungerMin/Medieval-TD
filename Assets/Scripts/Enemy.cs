@@ -6,22 +6,28 @@ public class Enemy : MonoBehaviour
     private PlayerStats playerStatsInstance;
 
     [Header("Stats")]
+    public float attack = 10f;
+    public float attackSpeed = 1f;
+    private float attackCooldown = 0f;
     public float speed = 10f;
     public float startHealth = 100f;
     private float health;
     public int value = 1;
-    //[HideInInspector]
+    [HideInInspector]
     public float currentSpeed;
-    //[HideInInspector]
+    [HideInInspector]
     public GameObject slow;
 
     [Header("Effects")]
     public GameObject deathEffect;
 
     [Header("Unity Stuff")]
+    public string meleeTag = "Melee";
     public GameObject enemyUI;
     public Image healthBar;
     private Transform mainCamera;
+
+    private GameObject blocking;
 
     private void Start()
     {
@@ -34,6 +40,14 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         SetPosition();
+        
+        if(blocking != null && attackCooldown <= 0f)
+        {
+            blocking.GetComponent<Melee>().TakeDamage(attack);
+            attackCooldown = 1f / attackSpeed;
+        }
+
+        attackCooldown -= Time.deltaTime;
     }
 
     private void Die()
@@ -41,15 +55,45 @@ public class Enemy : MonoBehaviour
         deathEffect.GetComponent<ParticleSystemRenderer>().material = GetComponent<MeshRenderer>().material;
         GameObject effect = (GameObject)Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(effect, 5f);
+
+        if(blocking != null)
+        {
+            blocking.GetComponent<Melee>().ReduceBlocked(gameObject);
+        }
+        
+        WaveSpawner.EnemiesAlive--;
+
+        
         Destroy(gameObject);
 
         playerStatsInstance.AddDP(value);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == meleeTag)
+        {
+            blocking = collision.gameObject;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == meleeTag)
+        {
+            blocking = null;
+        }
     }
 
     private void ResetSlow()
     {
         slow = null;
         CancelInvoke();
+    }
+
+    private void SetPosition()
+    {
+        enemyUI.GetComponent<RectTransform>().rotation = mainCamera.rotation;
     }
 
     public void TakeDamage(float damage)
@@ -78,10 +122,5 @@ public class Enemy : MonoBehaviour
     public void Slow(float pct)
     {
         currentSpeed = speed * (1f - pct);
-    }
-
-    private void SetPosition()
-    {
-        enemyUI.GetComponent<RectTransform>().rotation = mainCamera.rotation;
     }
 }

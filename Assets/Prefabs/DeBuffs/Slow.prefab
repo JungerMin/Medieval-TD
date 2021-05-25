@@ -43,8 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c39f2fcec29b0094982fc2ea8088822f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 2
+  duration: 3
   startTime: 0
   repeatTime: 0
   target: {fileID: 0}
-  slowPct: 40
+  slowPct: 50
