@@ -22,7 +22,7 @@ public class WaveSpawner : MonoBehaviour
 
     public static int EnemiesAlive = 0;
 
-    public Transform spawnPoint;
+    private Transform spawnPoint;
 
     private float waveCountdown;
     private bool currentlySpawning = false;
@@ -101,6 +101,7 @@ public class WaveSpawner : MonoBehaviour
 
     private void SpawnEnemy(GameObject _enemy)
     {
+        spawnPoint = _enemy.GetComponent<EnemyMovement>().waypointsObject.GetComponent<Waypoints>().waypoints[0];
         GameObject e = Instantiate(_enemy, spawnPoint.position, spawnPoint.rotation);
         e.SetActive(true);
         EnemiesAlive++;

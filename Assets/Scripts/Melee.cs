@@ -87,6 +87,7 @@ public class Melee : Units
 
     private void Die()
     {
+        RemoveBlocked();
         animator.Play("Base Layer.Die");
         Destroy(gameObject, 2f);
     }
@@ -105,7 +106,17 @@ public class Melee : Units
 
         if (health <= 0)
         {
+            alive = false;
             Die();
         }
+    }
+
+    public void RemoveBlocked()
+    {
+        for (int i = 0; i < colliding.Count; i++)
+        {
+            colliding[i].GetComponent<EnemyMovement>().NotBlocked();
+        }
+        gameObject.GetComponent<CapsuleCollider>().isTrigger = false;
     }
 }

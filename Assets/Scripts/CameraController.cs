@@ -22,8 +22,8 @@ public class CameraController : MonoBehaviour
 
     private void Start()
     {
-        startPosition = new Vector3(35.625f, 77.89f, 15f);
-        startRotation = new Quaternion(0f, 0f, 0f, 0f);
+        startPosition = transform.position;
+        startRotation = transform.rotation;
     }
     private void Update()
     {
@@ -53,11 +53,11 @@ public class CameraController : MonoBehaviour
         {
             transform.Rotate(0, -rotationSpeed * Time.deltaTime, 0, Space.Self);
         }
-        if (Input.GetKey("e"))
+        if (Input.GetKey("e") && enableRotation)
         {
             transform.Rotate(0, rotationSpeed * Time.deltaTime, 0, Space.Self);
         }
-        if (Input.GetKey("r") && enableRotation)
+        if (Input.GetKey("r"))
         {
             transform.position = startPosition;
             transform.rotation = startRotation;

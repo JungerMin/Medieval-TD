@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MainMenu : MonoBehaviour
 {
-    public string levelSelect;
+    public string explanations = "Explanations";
 
     public int upgradePoints = 0;
 
@@ -19,7 +19,7 @@ public class MainMenu : MonoBehaviour
 
     public void Play()
     {
-        sceneFader.FadeTo(levelSelect);
+        sceneFader.FadeTo(explanations);
     }
 
     public void Quit()

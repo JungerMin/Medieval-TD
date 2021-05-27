@@ -3,7 +3,12 @@ using UnityEngine.UI;
 
 public class NodeUI : MonoBehaviour
 {
+    private enum UnitType {MELEE, RANGED};
+    private UnitType unitType;
+
+
     public GameObject nodeUI;
+
 
     [Header("UI Position")]
     public GameObject backPoint;
@@ -15,7 +20,8 @@ public class NodeUI : MonoBehaviour
     public Text price;
 
     private Node target;
-    private Ranged turret;
+    private Ranged ranged;
+    private Melee melee;
     private TurretBlueprint turretBlueprint;
 
     private void Start()
@@ -25,8 +31,15 @@ public class NodeUI : MonoBehaviour
 
     private void Update()
     {
+        
+
         if (nodeUI.activeSelf == true)
         {
+            if (target.turret == null)
+            {
+                Hide();
+                return;
+            }
             SetPosition();
         }
     }
@@ -42,12 +55,25 @@ public class NodeUI : MonoBehaviour
 
         transform.position = target.GetBuildPosition() + dir.normalized * scaling;
 
-        turret = target.turret.GetComponent<Ranged>();
+        if (target.turret != null)
+        {
+            if (target.turret.tag == "Melee")
+            {
+                melee = target.turret.GetComponent<Melee>();
+            }
+            else if (target.turret.tag == "Ranged")
+            {
+                ranged = target.turret.GetComponent<Ranged>();
+            }
+        }
+        
         turretBlueprint = target.turretBlueprint;
 
         SetAttack();
         SetSecondary();
         SetSell();
+
+        target.turret.GetComponent<RangeIndicator>().SetActive(true);
     }
 
     public void SetTarget(Node _target)
@@ -57,27 +83,62 @@ public class NodeUI : MonoBehaviour
         transform.position = target.GetBuildPosition();
 
         nodeUI.SetActive(true);
+
+        if (target.turret.tag == "Melee")
+        {
+            unitType = UnitType.MELEE;
+        }
+        else if (target.turret.tag == "Ranged")
+        {
+            unitType = UnitType.RANGED;
+        }
     }
 
     public void Hide()
     {
         nodeUI.SetActive(false);
+        if (target != null)
+        {
+            target.turret.GetComponent<RangeIndicator>().SetActive(false);
+        }
     }
 
     public void SetAttack()
     {
-        attack.text = "Dmg: " + turret.damage.ToString();
+        if (unitType == UnitType.RANGED)
+        {
+            attack.text = "Dmg: " + ranged.damage.ToString();
+        }
+
+        if (unitType == UnitType.MELEE)
+        {
+            attack.text = "Dmg: " + melee.dmgPerHit.ToString();
+        }
+        
     }
 
     public void SetSecondary()
     {
-        secondary.text = "Debuff: " + turret.debuff.name;
+        if (unitType == UnitType.RANGED)
+        {
+            secondary.text = "Debuff: " + ranged.debuff.name;
+        }
+
+        if (unitType == UnitType.MELEE)
+        {
+            secondary.text = "Debuff: " + melee.debuff.name;
+        }
     }
 
     public void Sell()
     {
+        if(unitType == UnitType.MELEE)
+        {
+            target.turret.GetComponent<Melee>().RemoveBlocked();
+        }
         target.SellTurret();
         BuildManager.instance.DeselectNode();
+        target = null;
     }
 
     public void SetSell()
