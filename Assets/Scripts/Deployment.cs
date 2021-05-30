@@ -4,18 +4,22 @@ using UnityEngine.UI;
 public class Deployment : MonoBehaviour
 {
     public TurretBlueprint archer;
-    public TurretBlueprint defender;
     public TurretBlueprint mage;
+    public TurretBlueprint defender;
 
     private int archerUpgrade;
-    private int defenderUpgrade;
     private int mageUpgrade;
+    private int defenderUpgrade;
 
+    [Header("SelectedIcon")]
+    public GameObject archerSelected;
+    public GameObject mageSelected;
+    public GameObject defenderSelected;
 
     [Header("Turret Cost")]
     public Text archerCost;
-    public Text defenderCost;
     public Text mageCost;
+    public Text defenderCost;
 
     BuildManager buildManager;
 
@@ -39,16 +43,29 @@ public class Deployment : MonoBehaviour
     public void SelectArcher()
     {
         buildManager.SelectTurretToBuild(archer);
-    }
-
-    public void SelectDefender()
-    {
-        buildManager.SelectTurretToBuild(defender);
+        Deselect();
+        archerSelected.SetActive(true);
     }
 
     public void SelectMage()
     {
         buildManager.SelectTurretToBuild(mage);
+        Deselect();
+        mageSelected.SetActive(true);
+    }
+
+    public void SelectDefender()
+    {
+        buildManager.SelectTurretToBuild(defender);
+        Deselect();
+        defenderSelected.SetActive(true);
+    }
+
+    public void Deselect()
+    {
+        archerSelected.SetActive(false);
+        mageSelected.SetActive(false);
+        defenderSelected.SetActive(false);
     }
 
     private void CheckArcher()
@@ -61,16 +78,6 @@ public class Deployment : MonoBehaviour
         }
     }
 
-    private void CheckDefender()
-    {
-        if (defenderUpgrade == 1)
-        {
-            defender.isUpgraded = true;
-            defenderCost.text = defender.upgradedCost.ToString();
-            defender.upgradeImage.SetActive(true);
-        }
-    }
-
     private void CheckMage()
     {
         if (mageUpgrade == 1)
@@ -78,6 +85,16 @@ public class Deployment : MonoBehaviour
             mage.isUpgraded = true;
             mageCost.text = mage.upgradedCost.ToString();
             mage.upgradeImage.SetActive(true);
+        }
+    }
+
+    private void CheckDefender()
+    {
+        if (defenderUpgrade == 1)
+        {
+            defender.isUpgraded = true;
+            defenderCost.text = defender.upgradedCost.ToString();
+            defender.upgradeImage.SetActive(true);
         }
     }
 }

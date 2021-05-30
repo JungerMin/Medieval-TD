@@ -858,7 +858,7 @@ MonoBehaviour:
   debuff: {fileID: 7317659347512560645, guid: fa60a3b4202e04d44887b56cc5849ea6, type: 3}
   partToRotate: {fileID: 7914279082817334466}
   damage: 15
-  projectileSpeed: 40
+  projectileSpeed: 50
   explosionRadius: 0
   projectilePrefab: {fileID: 7336417887389515513, guid: bd55f26e288368a4485bd59b46673545, type: 3}
   firePoint: {fileID: 7914473640784589626}

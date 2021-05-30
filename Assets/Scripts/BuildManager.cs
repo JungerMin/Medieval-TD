@@ -4,6 +4,7 @@ public class BuildManager : MonoBehaviour
 {
     public static BuildManager instance;
     public NodeUI nodeUI;
+    public Deployment deployment;
 
     public static string ranged = "Ranged";
     public static string melee = "Melee";
@@ -103,6 +104,7 @@ public class BuildManager : MonoBehaviour
     {
         turretToBuild = null;
         type = null;
+        deployment.Deselect();
     }
 
     public bool HasTurret()

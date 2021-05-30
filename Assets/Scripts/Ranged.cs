@@ -32,7 +32,7 @@ public class Ranged : Units
 
         if (projectile != null && target != null)
         {
-            projectile.Seek(target.transform);
+            projectile.Seek(target);
         }
     }
 

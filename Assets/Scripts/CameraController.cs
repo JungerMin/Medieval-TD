@@ -67,17 +67,21 @@ public class CameraController : MonoBehaviour
 
         Vector3 pos = transform.position;
 
-        if (Input.GetKey("left shift"))
+        if (Input.GetKey("left shift") && enableRotation)
         {
             pos.y -= 10 * zoomSpeed * Time.deltaTime;
         }
 
-        if (Input.GetKey("space"))
+        if (Input.GetKey("space") && enableRotation)
         {
             pos.y += 10 * zoomSpeed * Time.deltaTime;
         }
 
-        pos.y -= scroll * 1000 * zoomSpeed * Time.deltaTime;
+        if (enableRotation)
+        {
+            pos.y -= scroll * 1000 * zoomSpeed * Time.deltaTime;
+        }
+
         pos.y = Mathf.Clamp(pos.y, minY, maxY);
         pos.x = Mathf.Clamp(pos.x, minX, maxX);
         pos.z = Mathf.Clamp(pos.z, minZ, maxZ);
@@ -88,9 +92,6 @@ public class CameraController : MonoBehaviour
         rot.x = pos.y * 0.7129f + 22.8705f;
 
         transform.position = pos;
-        if (enableRotation)
-        {
-            mainCamera.transform.eulerAngles = rot;
-        }
+        mainCamera.transform.eulerAngles = rot;
     }
 }

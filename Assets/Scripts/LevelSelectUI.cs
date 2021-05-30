@@ -7,9 +7,11 @@ public class LevelSelectUI : MonoBehaviour
     public Text stageName;
     public SceneFader sceneFader;
     public GameObject turretUpgradeMenu;
+    public GameObject levelSelectTitle;
 
     private Transform mainCamera;
     private LevelNode level;
+
 
     private void Start()
     {
@@ -57,5 +59,6 @@ public class LevelSelectUI : MonoBehaviour
     public void TurretUpgradeMenu()
     {
         turretUpgradeMenu.SetActive(true);
+        levelSelectTitle.SetActive(false);
     }
 }

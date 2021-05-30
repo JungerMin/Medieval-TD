@@ -78,6 +78,11 @@ public class NodeUI : MonoBehaviour
 
     public void SetTarget(Node _target)
     {
+        if (target != null)
+        {
+            target.turret.GetComponent<RangeIndicator>().SetActive(false);
+        }
+
         target = _target;
 
         transform.position = target.GetBuildPosition();
@@ -144,5 +149,10 @@ public class NodeUI : MonoBehaviour
     public void SetSell()
     {
         price.text = turretBlueprint.GetSellAmount().ToString() + " DP";
+    }
+
+    public Node GetTarget()
+    {
+        return target;
     }
 }

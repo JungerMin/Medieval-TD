@@ -47,6 +47,7 @@ public class EnemyMovement : MonoBehaviour
 
         if (target != null && !blocked)
         {
+            transform.LookAt(target.position);
             Vector3 dir = target.position - transform.position;
             transform.Translate(dir.normalized * enemy.currentSpeed * Time.deltaTime, Space.World);
 

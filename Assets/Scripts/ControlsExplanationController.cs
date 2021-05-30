@@ -2,20 +2,29 @@ using UnityEngine;
 
 public class ControlsExplanationController : MonoBehaviour
 {
-    public GameObject controls;
-    public GameObject unitsExplanation;
+    public GameObject explanations1;
+    public GameObject explanations2;
+    public GameObject explanations3;
     public SceneFader sceneFader;
     public string levelSelect= "LevelSelect";
 
     private void Start()
     {
-        unitsExplanation.SetActive(false);
-        controls.SetActive(true);
+        explanations3.SetActive(false);
+        explanations2.SetActive(false);
+        explanations1.SetActive(true);
     }
 
-    public void ContinueToUnitsExplanation()
+    public void Explanations2()
     {
-        unitsExplanation.SetActive(true);
+        explanations1.SetActive(false);
+        explanations2.SetActive(true);
+    }
+
+    public void Explanations3()
+    {
+        explanations2.SetActive(false);
+        explanations3.SetActive(true);
     }
 
     public void LevelSelect()

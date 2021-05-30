@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    private Transform target;
+    private GameObject target;
 
     [Header("Stats")]
     private float speed;
@@ -22,7 +22,7 @@ public class Projectile : MonoBehaviour
             return;
         }
 
-        Vector3 dir = target.position - transform.position;
+        Vector3 dir = target.transform.position - transform.position;
         float distancePerFrame = speed * Time.deltaTime;
 
         if (dir.magnitude <= distancePerFrame)
@@ -32,7 +32,7 @@ public class Projectile : MonoBehaviour
         }
 
         transform.Translate(dir.normalized * distancePerFrame, Space.World);
-        transform.LookAt(target);
+        transform.LookAt(target.transform);
     }
 
     private void OnDrawGizmosSelected()
@@ -65,7 +65,7 @@ public class Projectile : MonoBehaviour
         {
             if(collider.tag == "Enemy")
             {
-                Damage(collider.transform);
+                Damage(collider.gameObject);
             }
         }
     }
@@ -78,7 +78,7 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    private void Damage (Transform enemy)
+    private void Damage (GameObject enemy)
     {
         Enemy e = enemy.GetComponent<Enemy>();
 
@@ -89,7 +89,7 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    public void Seek(Transform _target)
+    public void Seek(GameObject _target)
     {
         target = _target;
     }
