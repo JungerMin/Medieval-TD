@@ -22,6 +22,8 @@ public class CameraController : MonoBehaviour
 
     private void Start()
     {
+        GameManager.GameIsOver = false;
+
         startPosition = transform.position;
         startRotation = transform.rotation;
     }
