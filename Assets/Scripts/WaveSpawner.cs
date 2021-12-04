@@ -32,6 +32,8 @@ public class WaveSpawner : MonoBehaviour
     {
         waveCountdown = waves[0].waveCountdown;
         totalWaves = waves.Length;
+        nextWave = 0;
+        EnemiesAlive = 0;
     }
 
     private void Update()
